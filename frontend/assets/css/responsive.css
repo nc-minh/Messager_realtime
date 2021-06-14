@@ -1,6 +1,18 @@
 /* mobile & tablet */
 @media (max-width: 1023px){
-    
+    .container__bg{
+        display: none;
+    }
+
+    .container__content{
+        height: 100%;
+        width: 100%;
+    }
+
+    .container__content__join{
+        text-align: center;
+        padding: 0;
+    }
 }
 
 /* tablet */
