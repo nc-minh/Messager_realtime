@@ -92,7 +92,13 @@
     display: none;
 }
 
-#login_form{
+#login_form,
+#register_form,
+#forget_form{
+    display: none;
+}
+
+#register_form_confirm{
     display: none;
 }
 
@@ -217,6 +223,7 @@
     text-decoration: none;
     font-size: 1.4rem;
     color: #939393;
+    cursor: pointer;
 }
 
 .auth-form__help-separate{

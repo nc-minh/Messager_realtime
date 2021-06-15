@@ -7,6 +7,9 @@ function modalSwitch(){
     let btnLogin = document.querySelectorAll(".login");
     let btnRegister = document.querySelectorAll('.register');
     let btnBack = document.querySelectorAll('.back');
+    let register_form = document.getElementById('register_form');
+    let login_form = document.getElementById('login_form');
+    
 
     register.addEventListener("click", ()=>{
         modal.style.display = "flex";
@@ -16,8 +19,8 @@ function modalSwitch(){
 
     login.addEventListener("click", ()=>{
         modal.style.display = "flex";
-        login_form.style.display = "block";
         register_form.style.display = "none";
+        login_form.style.display = "block";
     });
 
     window.onclick = function(event) {
@@ -47,6 +50,7 @@ function modalSwitch(){
             modal.style.display = "none";
         });
     });
+
 }
 modalSwitch();
 
