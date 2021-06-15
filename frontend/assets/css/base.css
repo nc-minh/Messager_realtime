@@ -27,7 +27,7 @@ html {
     height: 46px;
     text-decoration: none;
     border: none;
-    border-radius: 9999px;
+    border-radius: 8px;
     font-size: 1.5rem;
     outline: none;
     cursor: pointer;
@@ -42,7 +42,7 @@ html {
 
 .btn.btn--normal:hover{
     background-color: var(--primary-color-hover);
-    color: var(--white-color)
+    color: var(--white-color);
 }
 
 .btn.btn--size-s{

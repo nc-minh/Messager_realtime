@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/email.png" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/font/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="assets/icon/themify-icons-font/themify-icons/themify-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <title>Home</title>
 </head>
@@ -58,9 +59,11 @@
             </div>
         </div>
     </div>
+
+    
     <div class="modal" id="modal">
         <div class="modal__overlay" id="modal__overlay">
-
+    
         </div>
         <div class="modal__body">
                 <!-- register form -->
@@ -91,8 +94,8 @@
                                 <input id="password_confirmation" name="password_confirmation" rules="required|confirmed" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
                                 <span class="form-message"></span>
                             </div>
-
-                            <button class="form-submit">Đăng ký</button>
+                            <button class="btn btn--primary form-submit">Đăng ký</button>
+                            <button class="btn btn--normal form-submit back">trở lại</button>
                         </form>
     
                         <div class="auth-form__aside">
@@ -101,9 +104,9 @@
                                 <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
                             </p>
                         </div>
-
+    
                     </div>
-
+    
                     <div class="auth-form__socials">
                         <a href="" class="auth-form__socials--facebook btn btn--size-s">
                             <i class="auth-form__socials-icon ti-facebook"></i>
@@ -119,18 +122,18 @@
                         </a>
                     </div>
                 </div>
-
-
+    
+    
                 <!-- login form -->
-                <div class="auth-form" id="login_form">
-                    <div class="auth-form__container">
+                <div class="auth-form" id="login_form">  
+                   <div class="auth-form__container">
                         <div class="auth-form__header">
                             <h3 class="auth-form__heading login">Đăng nhập</h3>
                             <span class="auth-form__switch-btn register">Đăng ký</span>
                         </div>
-
+    
                         <form action="" method="POST" class="auth-form__form" id="login-form">
-
+    
                             <div class="form-group">
                               <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
                               <span class="form-message"></span>
@@ -141,7 +144,8 @@
                               <span class="form-message"></span>
                             </div>
                         
-                            <button class="form-submit">Đăng nhập</button>
+                            <button class="btn btn--primary form-submit">Đăng nhập</button>
+                            <button class="btn btn--normal form-submit back">trở lại</button>
                         </form>
     
                         <div class="auth-form__aside">
@@ -155,17 +159,17 @@
                                 </a>
                             </div>
                         </div>
-
+    
                     </div>
-
+    
                     <div class="auth-form__socials">
-                        <a href="" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
+                        <a href="" class="auth-form__socials--facebook btn btn--size-s">
                             <i class="auth-form__socials-icon ti-facebook"></i>
                             <span class="auth-form__socials-title">
                                 Kết nối với Facebook
                             </span>
                         </a>
-                        <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
+                        <a href="" class="auth-form__socials--google btn btn--size-s">
                             <i class="auth-form__socials-icon ti-google"></i>
                             <span class="auth-form__socials-title">
                                 Kết nối với Google
@@ -175,6 +179,7 @@
                 </div>
         </div>
     </div>
+    
 
     <script src="assets/js/validator.js"></script>
     <script src="assets/js/main.js"></script>

@@ -6,6 +6,7 @@ function modalSwitch(){
     let login = document.querySelector(".login--sw");
     let btnLogin = document.querySelectorAll(".login");
     let btnRegister = document.querySelectorAll('.register');
+    let btnBack = document.querySelectorAll('.back');
 
     register.addEventListener("click", ()=>{
         modal.style.display = "flex";
@@ -38,6 +39,12 @@ function modalSwitch(){
             modal.style.display = "flex";
             login_form.style.display = "none";
             register_form.style.display = "block";
+        });
+    });
+
+    btnBack.forEach(element => {
+        element.addEventListener("click", ()=>{
+            modal.style.display = "none";
         });
     });
 }

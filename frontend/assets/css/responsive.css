@@ -22,5 +22,19 @@
 
 /* mobile */
 @media (max-width: 739px){
-    
+    .auth-form{
+        width: 100vw;
+    }
+
+    .auth-form__socials{
+        flex-direction: column;
+    }
+
+    .form-group{
+        margin-bottom: 8px;
+    }
+
+    .auth-form__header{
+        margin-top: 0;
+    }
 }
