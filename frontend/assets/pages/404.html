@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/email.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../icon/themify-icons-font/themify-icons/themify-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
+    <title>Home</title>
+    <style>
+        .app__container{
+            flex-direction: column;
+        }
+
+        .app__container .NotForm{
+            height: 100vmin;
+            width: 100vmin;
+            position: relative;
+        }
+        
+        .btnBackPages{
+            position: absolute;
+            bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="app__container">
+            <img class="NotForm" src="../img/404.jpg" alt="">
+            <button class="btnBackPages btn btn--normal" type="button" onclick="backPages()">Quay lại trang trước</button>
+        </div>
+    </div>
+    <script>
+        function backPages(){
+            history.back();
+        }
+    </script>
+</body>
+</html>

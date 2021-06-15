@@ -4,6 +4,8 @@
 
 .app__container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100%;
 }
@@ -22,6 +24,7 @@
     flex-direction: column;
     justify-content: space-around;
     width: 50%;
+    height: 100%;
     background-color: var(--black-color);
 }
 
@@ -283,4 +286,32 @@ padding: 4px 0 0;
 
 .form-submit:hover {
 background-color: var(--primary-color-hover);
+}
+
+.form-control-password{
+    display: flex;
+    height: 40px;
+    padding: 0;
+    border-radius: 3px;
+    font-size: 1.4rem;
+}
+
+.form-control-input{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+}
+
+.show-hide-password{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.show-hide-password-icon{
+    font-size: 2rem;
 }

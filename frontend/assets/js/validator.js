@@ -18,7 +18,7 @@ function getParent(element, selector){
     //- nếu không có lỗi thì return `undefined`
     var ValidatorRules = {
         required: function(value){
-            return value ? undefined : 'Vui lòng nhập trường này!';
+            return value ? undefined : 'Vui lòng nhập thông tin!';
         },
         email: function(value){
             var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
