@@ -66,25 +66,23 @@ function modalSwitch(){
 modalSwitch();
 
 function showHidePass(){
-    let x = document.getElementById("password");
+    let x = document.querySelectorAll(".showHidePass");
     let wsShowHide = document.querySelectorAll(".show-hide-password");
     let changeColorIcon = document.querySelectorAll(".show-hide-password-icon");
 
-    wsShowHide.forEach(element => {
-        element.addEventListener("click", ()=>{
-            if (x.type === "password") {
-                x.type = "text";
-                    changeColorIcon.forEach(element => {
-                        element.style.color = "#FFD700";
-                    });
-                } else {
-                x.type = "password";
-                    changeColorIcon.forEach(element => {
-                        element.style.color = "var(--black-color)";
-                    });
+    for (let i = 0; i < x.length; i++){
+        wsShowHide[i].addEventListener("click", ()=>{
+            if(x[i].type == "password"){
+                x[i].type = "text";
+                changeColorIcon[i].style.color = "#FFD700";
+            }else{
+                x[i].type = "password";
+                changeColorIcon[i].style.color = "var(--black-color)";
             }
-        });
-    });
+        })
+    }
 }
 showHidePass();
+
+// 
 

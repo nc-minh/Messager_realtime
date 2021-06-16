@@ -35,7 +35,7 @@ function getParent(element, selector){
             }
         },
         confirmed: function (value) {
-            var password = document.querySelectorAll("[type='password']")[0].value;
+            var password = document.querySelectorAll("[name='password']")[0].value;
             return value === password ? undefined : 'Giá trị nhập vào không chính xác';
         },
     };

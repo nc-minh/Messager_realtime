@@ -90,7 +90,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-control form-control-password">
-                                    <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input">
+                                    <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
                                         <i class="ti-shine show-hide-password-icon"></i>
                                     </span>
@@ -100,7 +100,7 @@
                         
                             <div class="form-group">
                                 <div class="form-control form-control-password">
-                                    <input id="password_confirmation" name="password" rules="required|confirmed" type="password" placeholder="Nhập lại mật khẩu" class="form-control-input">
+                                    <input id="password_confirmation" name="password" rules="required|confirmed" type="password" placeholder="Nhập lại mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
                                         <i class="ti-shine show-hide-password-icon"></i>
                                     </span>
@@ -119,7 +119,6 @@
                         </div>
     
                     </div>
-                    <!-- register form end-->
     
                     <div class="auth-form__socials">
                         <a href="" class="auth-form__socials--facebook btn btn--size-s">
@@ -136,6 +135,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- register form end-->
 
                 <!-- confirm code -->
                 <div class="auth-form" id="register_form_confirm">
@@ -148,7 +148,7 @@
     
                         <form action="" method="POST" class="auth-form__form" id="register-form--confirm">
                             <div class="form-group">
-                                <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mã xác nhận" class="form-control">
+                                <input id="password" name="password" rules="required|min:6" type="text" placeholder="Nhập mã xác nhận" class="form-control">
                                 <span class="form-message"></span>
                             </div>
 
@@ -180,12 +180,17 @@
                         <form action="" method="POST" class="auth-form__form" id="login-form">
     
                             <div class="form-group">
-                              <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
-                              <span class="form-message"></span>
+                                <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                <span class="form-message"></span>
                             </div>
                         
                             <div class="form-group">
-                              <input id="password" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                                <div class="form-control form-control-password">
+                                    <input id="password" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
+                                    <span class="show-hide-password">
+                                        <i class="ti-shine show-hide-password-icon"></i>
+                                    </span>
+                                </div>
                               <span class="form-message"></span>
                             </div>
                         
@@ -232,7 +237,7 @@
                              <span class="auth-form__switch-btn login">Đăng nhập</span>
                          </div>
      
-                         <form action="" method="POST" class="auth-form__form" id="login-form">
+                         <form action="temp.html" method="POST" class="auth-form__form" id="login-form">
      
                              <div class="form-group">
                                <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
