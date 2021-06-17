@@ -310,8 +310,167 @@ background-color: var(--primary-color-hover);
     width: 40px;
     height: 40px;
     cursor: pointer;
+    position: relative;
 }
 
 .show-hide-password-icon{
     font-size: 2rem;
+    color: var(--black-color);
+}
+
+
+/* okok header */
+.app__header {
+    height: 65px;
+    background-color: var(--background-messager-color);
+    display: flex;
+    align-items: center;
+}
+
+.app__header__content{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+/* header left */
+
+.header--left{
+    height: 100%;
+    display: flex;
+}
+
+.header__logo{
+    padding: 0 10px;
+}
+
+.header__logo-link{
+    display: flex;
+    align-items: center
+}
+
+.header__logo__img{
+    width: 40px;
+    height: 40px;
+}
+
+.header__search{
+    flex: 1;
+    display: flex;
+    background-color: var(--line-color);
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 10px;
+}
+
+.header__search__icon{
+    color: var(--white-color);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.header__search__input{
+    width: 100%;
+    font-size: 1.4rem;
+    padding-left: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--white-color)
+}
+
+/* header center */
+.header--center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header--center__nav__content{
+    font-size: 3rem;
+    color: var(--white-color);
+    padding: 8px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header--center__nav__content:hover{
+    background-color: var(--line-color);
+}
+
+.header--center__nav__content--notifications{
+    position: absolute;
+    padding: 4px 6px;
+    background-color: var(--red-color);
+    top: 0px;
+    right: 0;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* header right */
+
+.header--right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header--right__nav{
+    display: flex;
+    margin-right: 10px;
+
+}
+
+.header--right__nav__user{
+    display: flex;
+}
+
+.header--right__nav__user--avatar{
+    display: flex;
+    align-items: center;
+}
+
+.nav__user--avatar__img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.header--right__nav__user--firstname{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--white-color);
+    line-height: 40px;
+    padding: 0 10px;
+}
+
+.header--right__nav__content{
+    font-size: 1.4rem;
+    width: 40px;
+    height: 40px;
+    background-color: var(--line-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header--right__nav__content:hover{
+    background-color: var(--line-color-hover);
+}
+
+.header--center__nav__icon{
+    color: var(--white-color);
 }

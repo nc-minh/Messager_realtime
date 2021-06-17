@@ -13,6 +13,14 @@
         text-align: center;
         padding: 0;
     }
+    /* code Vũ */
+    .header__right_user {
+        display: none;
+    }
+    #search__person {
+        width: 34px;
+        padding-right: 4px;
+    }
 }
 
 /* tablet */
@@ -36,5 +44,20 @@
 
     .auth-form__header{
         margin-top: 0;
+    }
+
+    /* header chat center */
+    .header__search{
+        width: 40px;
+        flex: 0;
+        border-radius: 50%;
+    }
+
+    .header__search__input{
+        display: none;
+    }
+
+    .header--center{
+        display: none;
     }
 }

@@ -3,8 +3,13 @@
     --primary-color-hover: #af3c3c;
     --white-color: #fff;
     --black-color: #000;
+    --red-color: #ff0000;
     --text-color: #333;
     --border-color: #228B22;
+    --line-color: #393a3b;
+    --line-color-hover: #616060;
+    --background-messager-color: #242526;
+
 
     -ms--primary-color: #A52A2A;
 }
