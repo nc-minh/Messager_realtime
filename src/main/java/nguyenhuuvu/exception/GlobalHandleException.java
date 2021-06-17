@@ -1,5 +1,6 @@
 package nguyenhuuvu.exception;
 
+import nguyenhuuvu.model.MyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -22,5 +23,13 @@ public class GlobalHandleException {
             errors.put(fieldName, errorMessage);
         });
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<?> handleValidationExceptions(DuplicateEmailException ex) {
+        System.out.println("trung email");
+        // build tam
+        MyException myException = new MyException("abcd123", "Email đang liên kết với một tài khoản khác", "400");
+        return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 }

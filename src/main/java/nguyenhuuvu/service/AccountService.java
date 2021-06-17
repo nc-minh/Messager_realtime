@@ -1,12 +1,17 @@
 package nguyenhuuvu.service;
 
 import lombok.AllArgsConstructor;
+import nguyenhuuvu.exception.DuplicateEmailException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.model.VerifyToken;
 import nguyenhuuvu.repository.AccountRepository;
 import nguyenhuuvu.utils.AccountUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Timestamp;
+import java.util.Calendar;
+
 
 @Service
 @AllArgsConstructor
@@ -15,6 +20,11 @@ public class AccountService {
 
     @Transactional
     public void signUpAccount(Account account) {
+        Account accountCheck = accountRepository.findAccountByEmail(account.getEmail());
+        if (accountCheck != null)
+        {
+            throw new DuplicateEmailException("Email đã tồn tại");
+        }
         String username = AccountUtil.createUsername(account.getFirstname(), account.getLastname());
         Account temp = accountRepository.findAccountByUsername(username);
         if (temp != null) {
@@ -31,9 +41,18 @@ public class AccountService {
         account.setEnabled(false);
         account.setUsername(username);
 
+        String token = AccountUtil.generateToken();
         VerifyToken verifyToken = new VerifyToken();
-        verifyToken.setToken(AccountUtil.generateToken());
+        verifyToken.setId(token);
+        verifyToken.setToken(token);
+        verifyToken.setTimeExpire(calculateExpiryDate(60*24));
         account.setVerifyToken(verifyToken);
         accountRepository.save(account);
+    }
+
+    public Timestamp calculateExpiryDate(int expiryTime) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE, expiryTime);
+        return new Timestamp(calendar.getTime().getTime());
     }
 }
