@@ -5,6 +5,7 @@ import nguyenhuuvu.exception.DuplicateEmailException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.model.VerifyToken;
 import nguyenhuuvu.repository.AccountRepository;
+import nguyenhuuvu.repository.VerifyTokenRepository;
 import nguyenhuuvu.utils.AccountUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.util.Calendar;
 @AllArgsConstructor
 public class AccountService {
     final AccountRepository accountRepository;
+    final VerifyTokenRepository verifyTokenRepository;
 
     @Transactional
     public void signUpAccount(Account account) {
@@ -43,9 +45,10 @@ public class AccountService {
 
         String token = AccountUtil.generateToken();
         VerifyToken verifyToken = new VerifyToken();
-        verifyToken.setId(token);
+//        verifyToken.setId(token);
         verifyToken.setToken(token);
         verifyToken.setTimeExpire(calculateExpiryDate(60*24));
+        verifyToken = verifyTokenRepository.save(verifyToken);
         account.setVerifyToken(verifyToken);
         accountRepository.save(account);
     }
