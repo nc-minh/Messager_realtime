@@ -107,7 +107,7 @@
                                 </div>
                                 <span class="form-message"></span>
                             </div>
-                            <button class="btn btn--primary form-submit register-confirm">Đăng ký</button>
+                            <button class="btn btn--primary form-submit register-confirm" id="register-confirm">Đăng ký</button>
                             <div class="btn btn--normal form-submit back">trở lại</div>
                         </form>
     
@@ -284,11 +284,14 @@
 
     <script src="assets/js/validator.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
     <script>
-        var form = new Validator('#register-form');
-        form.onSubmit = function(formData) {
-            console.log(formData);
-        }
+        // var form = new Validator('#register-form');
+        // form.onSubmit = function(formData) {
+        //     console.log(formData);
+        // }
+        Validator('#register-form');
+
         Validator('#login-form');
     </script>
 </body>

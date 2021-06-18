@@ -60,4 +60,9 @@
     .header--center{
         display: none;
     }
+
+    /* chat */
+    .container__left{
+        display: none;
+    }
 }
