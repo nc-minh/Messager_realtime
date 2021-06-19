@@ -1,6 +1,5 @@
 package nguyenhuuvu.model;
 
-import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

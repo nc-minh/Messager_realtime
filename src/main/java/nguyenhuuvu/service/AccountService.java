@@ -1,6 +1,5 @@
 package nguyenhuuvu.service;
 
-import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import nguyenhuuvu.exception.DuplicateEmailException;
 import nguyenhuuvu.exception.GenericUsernameException;
@@ -34,7 +33,7 @@ public class AccountService {
         boolean isError = true;
         for (int i = 1; i <= 10; i++)
         {
-            username = AccountUtil.createUsername(account.getFirstname(), account.getLastname());
+            username = AccountUtil.createUsername(account.getFullname());
             Account temp = accountRepository.findAccountByUsername(username);
             if (temp == null)
             {
@@ -60,5 +59,9 @@ public class AccountService {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, expiryTime);
         return calendar.getTime();
+    }
+
+    public Account findAccountByUsernameOrEmail(String q) {
+        return accountRepository.findAccountByUsernameOrEmail(q, q);
     }
 }

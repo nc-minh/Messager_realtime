@@ -23,23 +23,14 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping(path = {"/api/v1/account"})
+@RequestMapping(path = {"/api/v1/accounts"})
 @CrossOrigin("*")
+@AllArgsConstructor
 public class AccountController {
-
-    @Value("${nguyenhuuvu.system.domain}")
-    String domain;
-
     final AccountService accountService;
     final EmailSenderService emailSenderService;
 
-    @Autowired
-    public AccountController(AccountService accountService, EmailSenderService emailSenderService) {
-        this.accountService = accountService;
-        this.emailSenderService = emailSenderService;
-    }
-
-    @PostMapping(path = {"/signup"})
+    @PostMapping
     public ResponseEntity<?> signInAccount(@Valid @RequestBody Account account) throws MessagingException, IOException {
         // save account
         account = accountService.signUpAccount(account);
@@ -53,8 +44,7 @@ public class AccountController {
                         .builder()
                         .withUsername(account.getUsername())
                         .withEmail(account.getEmail())
-                        .withFirstname(account.getFirstname())
-                        .withLastname(account.getLastname())
+                        .withFullname(account.getFullname())
                         .withGender(account.getGender())
                         .withBirthday(account.getBirthday())
                         .withAddress(account.getAddress())
@@ -62,9 +52,6 @@ public class AccountController {
                 HttpStatus.OK);
     }
 
-    @GetMapping ("/verify")
-    public ResponseEntity<?> verifyToLink(@RequestParam("token") String token)
-    {
-        return ResponseEntity.status(HttpStatus.FOUND).location(URI.create(domain + "/signin?msg=success")).build();
-    }
+
+
 }

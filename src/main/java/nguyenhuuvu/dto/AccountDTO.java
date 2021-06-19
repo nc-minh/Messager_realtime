@@ -17,8 +17,7 @@ import java.util.Date;
 public class AccountDTO {
     private String username;
     private String email;
-    private String firstname;
-    private String lastname;
+    private String fullname;
     private Gender gender;
     private Date birthday;
     private String address;
@@ -31,8 +30,7 @@ public class AccountDTO {
     public static class AccountDTOBuilder {
         private String username;
         private String email;
-        private String firstname;
-        private String lastname;
+        private String fullname;
         private Gender gender;
         private Date birthday;
         private String address;
@@ -47,13 +45,8 @@ public class AccountDTO {
             return this;
         }
 
-        public AccountDTOBuilder withFirstname(String firstname) {
-            this.firstname = firstname;
-            return this;
-        }
-
-        public AccountDTOBuilder withLastname(String lastname) {
-            this.lastname = lastname;
+        public AccountDTOBuilder withFullname(String firstname) {
+            this.fullname = firstname;
             return this;
         }
 
@@ -74,7 +67,7 @@ public class AccountDTO {
 
         public AccountDTO build()
         {
-            return new AccountDTO(username, email, firstname, lastname, gender, birthday, address);
+            return new AccountDTO(username, email, fullname, gender, birthday, address);
         }
     }
 }

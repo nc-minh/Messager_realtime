@@ -1,6 +1,5 @@
 package nguyenhuuvu.model;
 
-import jdk.jfr.Timestamp;
 import lombok.Data;
 import nguyenhuuvu.enums.Gender;
 import org.springframework.data.annotation.Id;
@@ -30,16 +29,11 @@ public class Account {
     @Indexed(unique = true)
     private String email;
 
-    @NotBlank(message = "Firstname is mandatory")
-    private String firstname;
+    @NotBlank(message = "Fullname is mandatory")
+    private String fullname;
 
-    @NotBlank(message = "Lastname is mandatory")
-    private String lastname;
-
-    @NotNull(message = "Gender is not null")
     private Gender gender;
 
-    @NotNull(message = "Birthday is not null")
     private Date birthday;
 
     private String address;
