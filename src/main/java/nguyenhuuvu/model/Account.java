@@ -1,5 +1,6 @@
 package nguyenhuuvu.model;
 
+import jdk.jfr.Timestamp;
 import lombok.Data;
 import nguyenhuuvu.enums.Gender;
 import org.springframework.data.annotation.Id;
@@ -18,6 +19,7 @@ public class Account {
     @Id
     private String id;
 
+    @Indexed(unique = true)
     private String username;
 
     @NotBlank(message = "Password is mandatory")

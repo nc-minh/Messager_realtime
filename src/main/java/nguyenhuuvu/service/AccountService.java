@@ -1,5 +1,6 @@
 package nguyenhuuvu.service;
 
+import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import nguyenhuuvu.exception.DuplicateEmailException;
 import nguyenhuuvu.exception.GenericUsernameException;
@@ -11,8 +12,8 @@ import nguyenhuuvu.utils.Constant;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.Date;
 
 
 @Service
@@ -55,9 +56,9 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    public Timestamp calculateExpiryDate(int expiryTime) {
+    public Date calculateExpiryDate(int expiryTime) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MINUTE, expiryTime);
-        return new Timestamp(calendar.getTime().getTime());
+        return calendar.getTime();
     }
 }

@@ -1,10 +1,12 @@
 package nguyenhuuvu.model;
 
+import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
 
 @Data
 @NoArgsConstructor
@@ -12,6 +14,6 @@ import java.sql.Timestamp;
 public class VerifyToken {
     private String token;
     private int code;
-    private Timestamp timeExpire;
+    private Date timeExpire;
     private boolean isUsed;
 }
