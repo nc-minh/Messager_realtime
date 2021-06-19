@@ -34,6 +34,7 @@ public class EmailSenderService {
         mail.setTemplateName(Constant.VERIFY_MAIL_TEMPLATE);
         Map<String, Object> props = new HashMap<>();
         props.put("link", mail.getDomain() + "/api/v1/account/verify?token=" + account.getVerifyToken().getToken());
+        props.put("code", account.getVerifyToken().getCode());
         mail.setProps(props);
         return mail;
     }

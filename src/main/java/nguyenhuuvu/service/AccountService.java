@@ -2,11 +2,12 @@ package nguyenhuuvu.service;
 
 import lombok.AllArgsConstructor;
 import nguyenhuuvu.exception.DuplicateEmailException;
+import nguyenhuuvu.exception.GenericUsernameException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.model.VerifyToken;
 import nguyenhuuvu.repository.AccountRepository;
-import nguyenhuuvu.repository.VerifyTokenRepository;
 import nguyenhuuvu.utils.AccountUtil;
+import nguyenhuuvu.utils.Constant;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,39 +19,40 @@ import java.util.Calendar;
 @AllArgsConstructor
 public class AccountService {
     final AccountRepository accountRepository;
-    final VerifyTokenRepository verifyTokenRepository;
 
     @Transactional
-    public void signUpAccount(Account account) {
+    public Account signUpAccount(Account account) {
         Account accountCheck = accountRepository.findAccountByEmail(account.getEmail());
         if (accountCheck != null)
         {
             throw new DuplicateEmailException("Email đã tồn tại");
         }
-        String username = AccountUtil.createUsername(account.getFirstname(), account.getLastname());
-        Account temp = accountRepository.findAccountByUsername(username);
-        if (temp != null) {
-            // username has format: fisrtname + lastname + . + number
-            int num = 0;
-            try {
-                String index = temp.getUsername().split(".")[1];
-                num = Integer.parseInt(index) + 1;
-            } catch (NumberFormatException | IndexOutOfBoundsException e) {
-                num = 2;
+
+        // create username random and check
+        String username = null;
+        boolean isError = true;
+        for (int i = 1; i <= 10; i++)
+        {
+            username = AccountUtil.createUsername(account.getFirstname(), account.getLastname());
+            Account temp = accountRepository.findAccountByUsername(username);
+            if (temp == null)
+            {
+                isError = false;
+                break;
             }
-            username += "." + num;
         }
+
+        if (isError)
+            throw new GenericUsernameException();
+
         account.setEnabled(false);
         account.setUsername(username);
 
         String token = AccountUtil.generateToken();
-        VerifyToken verifyToken = new VerifyToken();
-//        verifyToken.setId(token);
-        verifyToken.setToken(token);
-        verifyToken.setTimeExpire(calculateExpiryDate(60*24));
-        verifyToken = verifyTokenRepository.save(verifyToken);
+        int code = AccountUtil.generateCode();
+        VerifyToken verifyToken = new VerifyToken(token, code, calculateExpiryDate(Constant.TIME_VERIFY_SIGNUP), false);
         account.setVerifyToken(verifyToken);
-        accountRepository.save(account);
+        return accountRepository.save(account);
     }
 
     public Timestamp calculateExpiryDate(int expiryTime) {

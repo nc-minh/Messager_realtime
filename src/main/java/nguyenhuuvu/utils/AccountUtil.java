@@ -15,6 +15,7 @@ public class AccountUtil {
         result = result.replaceAll("[ỳýỵỹỷ]", "y");
         result = result.replaceAll("[đ]", "d");
         result = result.replaceAll("[|\\/()*~ ]", "");
+        result += new Random().nextInt(1000000) + 1;
         return result;
     }
 
@@ -25,5 +26,9 @@ public class AccountUtil {
     public static String generateToken()
     {
         return UUID.randomUUID().toString();
+    }
+    public static int generateCode()
+    {
+        return new Random().nextInt(890000) + 100000;
     }
 }

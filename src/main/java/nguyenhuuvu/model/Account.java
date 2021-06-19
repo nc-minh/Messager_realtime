@@ -4,7 +4,6 @@ import lombok.Data;
 import nguyenhuuvu.enums.Gender;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
@@ -47,6 +46,5 @@ public class Account {
 
     private boolean enabled = false;
 
-    @DBRef(lazy = false)
     private VerifyToken verifyToken;
 }

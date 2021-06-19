@@ -18,6 +18,6 @@ public class Mail {
     private List<Object> attachments;
     private Map<String, Object> props = new HashMap<>();
     private String templateName;
-    @Value("${spring.system.domain}")
+    @Value("${nguyenhuuvu.system.domain}")
     private String domain;
 }
