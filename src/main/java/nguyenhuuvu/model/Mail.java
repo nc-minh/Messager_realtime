@@ -11,7 +11,7 @@ import java.util.Map;
 @Data
 @Component
 public class Mail {
-    @Value("${spring.mail.username}")
+    @Value("${nguyenhuuvu.system.email}")
     private String from;
     private String mailTo;
     private String subject;

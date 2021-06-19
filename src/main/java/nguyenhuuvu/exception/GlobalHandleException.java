@@ -50,7 +50,7 @@ public class GlobalHandleException {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<?> httpMessageNotReadableException(HttpMessageNotReadableException ex) {
-        MyException myException = new MyException("devchat004", ex.getMessage(), "400");
+        MyException myException = new MyException("devchat005", ex.getMessage(), "400");
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 }
