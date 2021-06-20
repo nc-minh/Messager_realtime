@@ -10,6 +10,7 @@ import nguyenhuuvu.service.AccountService;
 import nguyenhuuvu.utils.AccountUtil;
 import nguyenhuuvu.utils.Constant;
 import nguyenhuuvu.utils.DateTimeUtil;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,12 +18,13 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 public class AccountServiceImpl implements AccountService {
     final AccountRepository accountRepository;
+    final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Transactional
     public Account signUpAccount(Account account) {
         Account accountCheck = accountRepository.findAccountByEmail(account.getEmail());
         if (accountCheck != null) {
-            throw new DuplicateEmailException("Email đã tồn tại");
+            throw new DuplicateEmailException("Email is not exist!");
         }
 
         // create username random and check
@@ -47,6 +49,7 @@ public class AccountServiceImpl implements AccountService {
         String code = AccountUtil.generateCode().toString();
         Verify verify = new Verify(token, code, DateTimeUtil.calculateExpiryDate(Constant.TIME_VERIFY_SIGNUP), false);
         account.setVerify(verify);
+        account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
         return accountRepository.save(account);
     }
 

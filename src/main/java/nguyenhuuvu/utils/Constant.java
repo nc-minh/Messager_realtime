@@ -6,6 +6,7 @@ public class Constant {
     public static final String VERIFY_ACCOUNT_TIME_EXPIRE = "24 giờ";
     public static final String RESET_PASSWORD_TIME_EXPIRE = "2 giờ";
 
+    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
     /**
      * one day
      */

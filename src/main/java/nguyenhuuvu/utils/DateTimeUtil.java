@@ -11,9 +11,6 @@ public class DateTimeUtil {
     }
 
     public static boolean checkTokenExpire(Date date) {
-        Date dateNow = new Date();
-        if (date.getTime() > dateNow.getTime())
-            return true;
-        return false;
+        return date.after(new Date());
     }
 }

@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class MyException {
     private String errorCode;
     private String message;
-    private String status;
+    private int status;
 }
