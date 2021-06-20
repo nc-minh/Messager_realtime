@@ -1,6 +1,7 @@
 package nguyenhuuvu.service.impl;
 
 import lombok.AllArgsConstructor;
+import nguyenhuuvu.exception.AccountNotFoundException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.repository.AccountRepository;
 import nguyenhuuvu.service.VerifyService;
@@ -19,6 +20,8 @@ public class VerifyServiceImpl implements VerifyService {
 
     public boolean verifyCode(String email, String code) {
         Account account = accountRepository.findAccountByEmail(email);
+        if (account == null)
+            throw new AccountNotFoundException("Email is not linked to any accounts");
         if (account.getVerify().getCode().equals(code))
             return verify(account);
         return false;

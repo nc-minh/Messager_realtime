@@ -25,12 +25,13 @@ public class EmailSenderServiceImpl implements EmailSenderService {
     private final SpringTemplateEngine templateEngine;
     private final Mail mail;
 
+    //mail.getDomain()
     public Mail createMailVerify(Account account, String timeExpire) {
         mail.setMailTo(account.getEmail());
         mail.setSubject(Constant.VERIFY_ACCOUNT_SUBJECT);
         mail.setTemplateName(Constant.VERIFY_MAIL_TEMPLATE);
         Map<String, Object> props = new HashMap<>();
-        props.put("link", mail.getDomain() + "/api/v1/accounts/verification?token=" + account.getVerify().getToken());
+        props.put("link", "https://apidevchat.herokuapp.com" + "/api/v1/accounts/verification?token=" + account.getVerify().getToken());
         props.put("code", account.getVerify().getCode());
         props.put("expire", timeExpire);
         mail.setProps(props);

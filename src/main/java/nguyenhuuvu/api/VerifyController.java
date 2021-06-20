@@ -46,7 +46,7 @@ public class VerifyController {
             emailSenderService.sendEmail(mail);
             return new ResponseEntity<>(new SimpleResponse(200, "Đã gửi lại email xác thực"), HttpStatus.OK);
         } else
-            throw new AccountNotFoundException();
+            throw new AccountNotFoundException("This token does not exist");
     }
 
     @GetMapping
@@ -64,9 +64,9 @@ public class VerifyController {
         String email = info.get("email");
         boolean isOke = verifyService.verifyCode(email, code);
         if (isOke)
-            return new ResponseEntity<>(new SimpleResponse(200, "Xác nhận tài khoản thành công!"), HttpStatus.OK);
+            return new ResponseEntity<>(new SimpleResponse(200, "Account confirmation successful!"), HttpStatus.OK);
         else
-            return new ResponseEntity<>(new SimpleResponse(400, "Mã xác nhận không hợp lệ hoặc đã hết hạn!"), HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(new SimpleResponse(400, "The verification code is invalid or has expired!"), HttpStatus.NOT_ACCEPTABLE);
     }
 
 }

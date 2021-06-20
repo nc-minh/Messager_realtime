@@ -56,7 +56,7 @@ public class GlobalHandleException {
 
     @ExceptionHandler(AccountNotFoundException.class)
     public ResponseEntity<?> accountNotFoundException(AccountNotFoundException ex) {
-        MyException myException = new MyException("devchat006", "Tài khoản này không tồn tại", "400");
+        MyException myException = new MyException("devchat006", ex.getMessage(), "400");
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 }
