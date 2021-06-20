@@ -3,6 +3,8 @@ package nguyenhuuvu.utils;
 public class Constant {
     public static final String VERIFY_MAIL_TEMPLATE = "verify-template";
     public static final String VERIFY_ACCOUNT_SUBJECT = "Xác nhận tài khoản DevChat";
+    public static final String VERIFY_ACCOUNT_TIME_EXPIRE = "24 giờ";
+    public static final String RESET_PASSWORD_TIME_EXPIRE = "2 giờ";
 
     /**
      * one day

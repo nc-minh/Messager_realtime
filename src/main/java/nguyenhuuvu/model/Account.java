@@ -2,13 +2,13 @@ package nguyenhuuvu.model;
 
 import lombok.Data;
 import nguyenhuuvu.enums.Gender;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
@@ -22,6 +22,7 @@ public class Account {
     private String username;
 
     @NotBlank(message = "Password is mandatory")
+    @Length(min = 5)
     private String password;
 
     @NotBlank(message = "Email is mandatory")
@@ -30,6 +31,7 @@ public class Account {
     private String email;
 
     @NotBlank(message = "Fullname is mandatory")
+    @Length(min = 5, max = 30)
     private String fullname;
 
     private Gender gender;
@@ -42,5 +44,5 @@ public class Account {
 
     private boolean enabled = false;
 
-    private VerifyToken verifyToken;
+    private Verify verify;
 }

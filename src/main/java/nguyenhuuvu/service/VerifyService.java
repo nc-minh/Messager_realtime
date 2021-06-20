@@ -1,9 +1,7 @@
 package nguyenhuuvu.service;
 
-import org.springframework.stereotype.Service;
+public interface VerifyService {
+    boolean verifyToken(String token);
 
-@Service
-public class VerifyService {
-
-
+    boolean verifyCode(String email, String code);
 }

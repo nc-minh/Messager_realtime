@@ -1,14 +1,12 @@
 package nguyenhuuvu.api;
 
-import lombok.AllArgsConstructor;
-import nguyenhuuvu.dto.AccountDTO;
 import nguyenhuuvu.exception.AccountNotFoundException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.model.Mail;
 import nguyenhuuvu.model.SimpleResponse;
 import nguyenhuuvu.service.AccountService;
 import nguyenhuuvu.service.EmailSenderService;
-import org.springframework.beans.factory.annotation.Autowired;
+import nguyenhuuvu.service.VerifyService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.net.URI;
-import java.util.HashMap;
 import java.util.Map;
+
+import static nguyenhuuvu.utils.Constant.VERIFY_ACCOUNT_TIME_EXPIRE;
 
 @RestController
 @RequestMapping(path = {"/api/v1/accounts/verification"})
@@ -29,17 +28,21 @@ public class VerifyController {
 
     final EmailSenderService emailSenderService;
     final AccountService accountService;
+    final VerifyService verifyService;
 
-    public VerifyController(EmailSenderService emailSenderService, AccountService accountService) {
+    public VerifyController(EmailSenderService emailSenderService, AccountService accountService, VerifyService verifyService) {
         this.emailSenderService = emailSenderService;
         this.accountService = accountService;
+        this.verifyService = verifyService;
     }
 
-    @PostMapping
-    public ResponseEntity<?> resendCode(@RequestBody Map<String, String> req) throws MessagingException, IOException {
-        Account account = accountService.findAccountByUsernameOrEmail(req.get("key"));
+    // fix sau - loi logic
+    // chua check token het han chua
+    @PostMapping("?action=resend-code")
+    public ResponseEntity<?> resendCode(@RequestBody Map<String, String> body) throws MessagingException, IOException {
+        Account account = accountService.findAccountByEmail(body.get("email"));
         if (account != null) {
-            Mail mail = emailSenderService.createMailVerify(account);
+            Mail mail = emailSenderService.createMailVerify(account, VERIFY_ACCOUNT_TIME_EXPIRE);
             emailSenderService.sendEmail(mail);
             return new ResponseEntity<>(new SimpleResponse(200, "Đã gửi lại email xác thực"), HttpStatus.OK);
         } else
@@ -48,7 +51,22 @@ public class VerifyController {
 
     @GetMapping
     public ResponseEntity<?> verifyToLink(@RequestParam("token") String token) {
-        return ResponseEntity.status(HttpStatus.FOUND).location(URI.create(domain + "/signin?msg=success")).build();
+        boolean isOke = verifyService.verifyToken(token);
+        if (isOke)
+            return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("/signin?msg=verify-success")).build();
+        else
+            return ResponseEntity.status(HttpStatus.FOUND).location(URI.create("/url-invalid?msg=expire")).build();
+    }
+
+    @PostMapping
+    public ResponseEntity<?> verifyToCode(@RequestBody Map<String, String> info) {
+        String code = info.get("code");
+        String email = info.get("email");
+        boolean isOke = verifyService.verifyCode(email, code);
+        if (isOke)
+            return new ResponseEntity<>(new SimpleResponse(200, "Xác nhận tài khoản thành công!"), HttpStatus.OK);
+        else
+            return new ResponseEntity<>(new SimpleResponse(400, "Mã xác nhận không hợp lệ hoặc đã hết hạn!"), HttpStatus.NOT_ACCEPTABLE);
     }
 
 }

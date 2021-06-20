@@ -1,5 +1,6 @@
 package nguyenhuuvu.utils;
 
+import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
@@ -14,6 +15,7 @@ public class AccountUtil {
         fullname = fullname.replaceAll("[ỳýỵỹỷ]", "y");
         fullname = fullname.replaceAll("[đ]", "d");
         fullname = fullname.replaceAll("[|\\/()*~ ]", "");
+        fullname = fullname.toLowerCase();
         fullname += new Random().nextInt(1000000) + 1;
         return fullname;
     }
@@ -26,7 +28,7 @@ public class AccountUtil {
     {
         return UUID.randomUUID().toString();
     }
-    public static int generateCode()
+    public static Integer generateCode()
     {
         return new Random().nextInt(890000) + 100000;
     }

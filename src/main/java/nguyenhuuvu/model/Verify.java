@@ -10,9 +10,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VerifyToken {
+public class Verify {
     private String token;
-    private int code;
+    private String code;
     private Date timeExpire;
-    private boolean isUsed;
+    private boolean used;
 }
