@@ -10,7 +10,7 @@ public class Constant {
     /**
      * one day
      */
-    public static final int TIME_VERIFY_SIGNUP = 60*24;
+    public static final int TIME_VERIFY_SIGNUP = 60*24*30;
 
     /**
      * one hour

@@ -41,8 +41,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             } catch (Exception e) {
                 logger.warn("Unable to get JWT Token!");
             }
-        } else {
-            logger.warn("JWT Token does not begin with Bearer String");
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -57,6 +55,5 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
 
         filterChain.doFilter(request, response);
-
     }
 }

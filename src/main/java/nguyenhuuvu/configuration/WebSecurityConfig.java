@@ -47,8 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/api/v1/accounts", "/api/v1/accounts/authenticate", "/api/v1/accounts/verification")
-                    .permitAll()
                 .anyRequest()
                     .authenticated()
                 .and()
@@ -62,6 +60,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/swagger-ui/*");
+        web.ignoring().
+                antMatchers(
+                        "/swagger-ui/**", "/v3/api-docs/**",
+                        "/api/v1/accounts",
+                        "/api/v1/accounts/authenticate",
+                        "/api/v1/accounts/verification"
+                );
+
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -41,7 +42,7 @@ public class GlobalHandleException {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> globalException(Exception ex) {
         ex.printStackTrace();
-        MyException myException = new MyException("devchat000", "Lỗi rồi =)) chụp lại màn hình gửi t nhé =))", 400);
+        MyException myException = new MyException("devchat000", ex.getMessage(), 400);
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 
@@ -74,5 +75,11 @@ public class GlobalHandleException {
     public final ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ex, WebRequest request) {
         ErrorMessage errorDetails = new ErrorMessage(ex.getMessage());
         return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public final ResponseEntity<?> badCredentialsException(BadCredentialsException ex) {
+        MyException myException = new MyException("devchat009", "Incorrect account or password", 400);
+        return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 }
