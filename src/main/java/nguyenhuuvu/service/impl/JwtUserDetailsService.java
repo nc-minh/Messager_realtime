@@ -1,7 +1,7 @@
 package nguyenhuuvu.service.impl;
 
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.exception.AccountNotFoundException;
+import nguyenhuuvu.exception.AccountHandleException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.repository.AccountRepository;
 import org.springframework.security.core.userdetails.User;
@@ -24,7 +24,9 @@ public class JwtUserDetailsService implements UserDetailsService {
         if (account == null)
             account = accountRepository.findAccountByUsername(s);
         if (account == null)
-            throw new AccountNotFoundException("Login false!");
+            throw new AccountHandleException("Login false!");
+        if (!account.isEnabled())
+            throw new AccountHandleException("Account is not activated!");
         return new User(account.getUsername(), account.getPassword(), new ArrayList<>());
     }
 }

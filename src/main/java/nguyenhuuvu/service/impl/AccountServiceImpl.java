@@ -14,11 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class AccountServiceImpl implements AccountService {
     final AccountRepository accountRepository;
-    final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Transactional
     public Account signUpAccount(Account account) {
@@ -49,6 +50,7 @@ public class AccountServiceImpl implements AccountService {
         String code = AccountUtil.generateCode().toString();
         Verify verify = new Verify(token, code, DateTimeUtil.calculateExpiryDate(Constant.TIME_VERIFY_SIGNUP), false);
         account.setVerify(verify);
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
         return accountRepository.save(account);
     }
@@ -56,5 +58,10 @@ public class AccountServiceImpl implements AccountService {
 
     public Account findAccountByEmail(String email) {
         return accountRepository.findAccountByEmail(email);
+    }
+
+    @Override
+    public List<Account> findAll() {
+        return accountRepository.findAll();
     }
 }

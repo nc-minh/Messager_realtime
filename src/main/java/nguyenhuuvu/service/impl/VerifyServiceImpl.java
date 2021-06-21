@@ -1,7 +1,7 @@
 package nguyenhuuvu.service.impl;
 
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.exception.AccountNotFoundException;
+import nguyenhuuvu.exception.AccountHandleException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.repository.AccountRepository;
 import nguyenhuuvu.service.VerifyService;
@@ -21,7 +21,7 @@ public class VerifyServiceImpl implements VerifyService {
     public boolean verifyCode(String email, String code) {
         Account account = accountRepository.findAccountByEmail(email);
         if (account == null)
-            throw new AccountNotFoundException("Email is not linked to any accounts");
+            throw new AccountHandleException("Email is not linked to any accounts");
         if (account.getVerify().getCode().equals(code))
             return verify(account);
         return false;
@@ -33,6 +33,7 @@ public class VerifyServiceImpl implements VerifyService {
                 return false;
             if (DateTimeUtil.checkTokenExpire(account.getVerify().getTimeExpire())) {
                 account.getVerify().setUsed(true);
+                account.setEnabled(true);
                 accountRepository.save(account);
                 return true;
             }

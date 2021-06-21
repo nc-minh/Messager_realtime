@@ -1,14 +1,19 @@
 package nguyenhuuvu.exception;
 
 import nguyenhuuvu.model.MyException;
+import org.springdoc.api.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,8 +58,8 @@ public class GlobalHandleException {
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(AccountNotFoundException.class)
-    public ResponseEntity<?> accountNotFoundException(AccountNotFoundException ex) {
+    @ExceptionHandler(AccountHandleException.class)
+    public ResponseEntity<?> accountNotFoundException(AccountHandleException ex) {
         MyException myException = new MyException("devchat006", ex.getMessage(), 400);
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
     }
@@ -63,5 +68,11 @@ public class GlobalHandleException {
     public ResponseEntity<?> accountNotFoundException(JwtTokenException ex) {
         MyException myException = new MyException("devchat007", ex.getMessage(), 400);
         return new ResponseEntity<>(myException, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public final ResponseEntity<ErrorMessage> handleAccessDeniedException(AccessDeniedException ex, WebRequest request) {
+        ErrorMessage errorDetails = new ErrorMessage(ex.getMessage());
+        return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
     }
 }

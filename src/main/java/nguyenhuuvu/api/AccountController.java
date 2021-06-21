@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.List;
 
 import static nguyenhuuvu.utils.Constant.VERIFY_ACCOUNT_TIME_EXPIRE;
 
@@ -29,6 +30,12 @@ public class AccountController {
     final AccountService accountService;
     final EmailSenderService emailSenderService;
 
+    @GetMapping
+    public ResponseEntity<?> fetchAllUsers() {
+        List<Account> accounts = accountService.findAll();
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
+    }
+
     @Operation(description = "Tạo tài khoản mới", parameters = {
             @Parameter(name = "fullname", description = "Bắt buộc"),
             @Parameter(name = "email", description = "Bắt buộc"),
@@ -38,6 +45,8 @@ public class AccountController {
             @ApiResponse(responseCode = "200", description = "Tạo tài khoản thành công"),
             @ApiResponse(responseCode = "400", description = "Email này đã liên kết với tài khoản khác")
     })
+
+
     @PostMapping
     public ResponseEntity<?> signInAccount(@Valid @RequestBody Account account) throws MessagingException, IOException {
         // save account

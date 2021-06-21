@@ -1,6 +1,6 @@
 package nguyenhuuvu.api;
 
-import nguyenhuuvu.exception.AccountNotFoundException;
+import nguyenhuuvu.exception.AccountHandleException;
 import nguyenhuuvu.model.Account;
 import nguyenhuuvu.model.Mail;
 import nguyenhuuvu.model.SimpleResponse;
@@ -46,7 +46,7 @@ public class VerifyController {
             emailSenderService.sendEmail(mail);
             return new ResponseEntity<>(new SimpleResponse(200, "Đã gửi lại email xác thực"), HttpStatus.OK);
         } else
-            throw new AccountNotFoundException("This token does not exist");
+            throw new AccountHandleException("This token does not exist");
     }
 
     @GetMapping
