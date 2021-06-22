@@ -4,17 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import nguyenhuuvu.enums.Gender;
-import org.springframework.data.annotation.Id;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountDTO {
+public class UserDTO {
     private String username;
     private String email;
     private String fullname;
@@ -65,9 +61,9 @@ public class AccountDTO {
             return this;
         }
 
-        public AccountDTO build()
+        public UserDTO build()
         {
-            return new AccountDTO(username, email, fullname, gender, birthday, address);
+            return new UserDTO(username, email, fullname, gender, birthday, address);
         }
     }
 }

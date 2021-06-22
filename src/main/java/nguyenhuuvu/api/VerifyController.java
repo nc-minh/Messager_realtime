@@ -1,10 +1,10 @@
 package nguyenhuuvu.api;
 
-import nguyenhuuvu.exception.AccountHandleException;
-import nguyenhuuvu.model.Account;
+import nguyenhuuvu.entity.UserEntity;
+import nguyenhuuvu.exception.UserHandleException;
 import nguyenhuuvu.model.Mail;
 import nguyenhuuvu.model.SimpleResponse;
-import nguyenhuuvu.service.AccountService;
+import nguyenhuuvu.service.UserService;
 import nguyenhuuvu.service.EmailSenderService;
 import nguyenhuuvu.service.VerifyService;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,12 +27,12 @@ public class VerifyController {
     String domain;
 
     final EmailSenderService emailSenderService;
-    final AccountService accountService;
+    final UserService userService;
     final VerifyService verifyService;
 
-    public VerifyController(EmailSenderService emailSenderService, AccountService accountService, VerifyService verifyService) {
+    public VerifyController(EmailSenderService emailSenderService, UserService userService, VerifyService verifyService) {
         this.emailSenderService = emailSenderService;
-        this.accountService = accountService;
+        this.userService = userService;
         this.verifyService = verifyService;
     }
 
@@ -40,13 +40,13 @@ public class VerifyController {
     // chua check token het han chua
     @PostMapping("?action=resend-code")
     public ResponseEntity<?> resendCode(@RequestBody Map<String, String> body) throws MessagingException, IOException {
-        Account account = accountService.findAccountByEmail(body.get("email"));
-        if (account != null) {
-            Mail mail = emailSenderService.createMailVerify(account, VERIFY_ACCOUNT_TIME_EXPIRE);
+        UserEntity user = userService.findUserByEmail(body.get("email"));
+        if (user != null) {
+            Mail mail = emailSenderService.createMailVerify(user, VERIFY_ACCOUNT_TIME_EXPIRE);
             emailSenderService.sendEmail(mail);
             return new ResponseEntity<>(new SimpleResponse(200, "Đã gửi lại email xác thực"), HttpStatus.OK);
         } else
-            throw new AccountHandleException("This token does not exist");
+            throw new UserHandleException("This token does not exist");
     }
 
     @GetMapping

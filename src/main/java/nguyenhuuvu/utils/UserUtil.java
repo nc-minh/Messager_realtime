@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
-public class AccountUtil {
+public class UserUtil {
     public static String createUsername(String fullname)
     {
         fullname = fullname.replaceAll("[áạảãàâấậẩẫầăắặẵẳ]", "a");
@@ -18,10 +18,6 @@ public class AccountUtil {
         fullname = fullname.toLowerCase();
         fullname += new Random().nextInt(1000000) + 1;
         return fullname;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(generateToken());
     }
 
     public static String generateToken()

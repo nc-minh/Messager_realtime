@@ -1,7 +1,7 @@
 package nguyenhuuvu.service.impl;
 
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.model.Account;
+import nguyenhuuvu.entity.UserEntity;
 import nguyenhuuvu.model.Mail;
 import nguyenhuuvu.service.EmailSenderService;
 import nguyenhuuvu.utils.Constant;
@@ -26,13 +26,13 @@ public class EmailSenderServiceImpl implements EmailSenderService {
     private final Mail mail;
 
     //mail.getDomain()
-    public Mail createMailVerify(Account account, String timeExpire) {
-        mail.setMailTo(account.getEmail());
+    public Mail createMailVerify(UserEntity user, String timeExpire) {
+        mail.setMailTo(user.getEmail());
         mail.setSubject(Constant.VERIFY_ACCOUNT_SUBJECT);
         mail.setTemplateName(Constant.VERIFY_MAIL_TEMPLATE);
         Map<String, Object> props = new HashMap<>();
-        props.put("link", "https://apidevchat.herokuapp.com" + "/api/v1/accounts/verification?token=" + account.getVerify().getToken());
-        props.put("code", account.getVerify().getCode());
+        props.put("link", "https://apidevchat.herokuapp.com" + "/api/v1/accounts/verification?token=" + user.getVerifyEntity().getToken());
+        props.put("code", user.getVerifyEntity().getCode());
         props.put("expire", timeExpire);
         mail.setProps(props);
         return mail;

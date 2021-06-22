@@ -1,25 +1,25 @@
-package nguyenhuuvu.model;
+package nguyenhuuvu.entity;
 
 import lombok.Data;
 import nguyenhuuvu.enums.Gender;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
+@Entity
+@Table(name = "user", indexes = {
+        @Index(columnList = "username", unique = true),
+        @Index(columnList = "email", unique = true)
+})
 @Data
-@Document(collection = "account")
-public class Account {
+public class UserEntity {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Indexed(unique = true)
     private String username;
 
     @NotBlank(message = "Password is mandatory")
@@ -28,7 +28,6 @@ public class Account {
 
     @NotBlank(message = "Email is mandatory")
     @Email(message = "Invalid format")
-    @Indexed(unique = true)
     private String email;
 
     @NotBlank(message = "Fullname is mandatory")
@@ -40,10 +39,9 @@ public class Account {
     private Date birthday;
 
     private String address;
-
-    private Set<String> listUsernameFriends;
-
     private boolean enabled = false;
 
-    private Verify verify;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "verify_id")
+    private VerifyEntity verifyEntity;
 }

@@ -5,11 +5,11 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.dto.AccountDTO;
-import nguyenhuuvu.model.Account;
+import nguyenhuuvu.dto.UserDTO;
+import nguyenhuuvu.entity.UserEntity;
 import nguyenhuuvu.model.Mail;
-import nguyenhuuvu.service.AccountService;
 import nguyenhuuvu.service.EmailSenderService;
+import nguyenhuuvu.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +27,12 @@ import static nguyenhuuvu.utils.Constant.VERIFY_ACCOUNT_TIME_EXPIRE;
 @CrossOrigin("*")
 @AllArgsConstructor
 public class AccountController {
-    final AccountService accountService;
+    final UserService userService;
     final EmailSenderService emailSenderService;
 
     @GetMapping
     public ResponseEntity<?> fetchAllUsers() {
-        List<Account> accounts = accountService.findAll();
+        List<UserEntity> accounts = userService.findAll();
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 
@@ -48,23 +48,20 @@ public class AccountController {
 
 
     @PostMapping
-    public ResponseEntity<?> signInAccount(@Valid @RequestBody Account account) throws MessagingException, IOException {
+    public ResponseEntity<?> signUpUser(@Valid @RequestBody UserEntity user) throws MessagingException, IOException {
         // save account
-        account = accountService.signUpAccount(account);
+        user = userService.signUpUser(user);
 
         // send mail verify
-        Mail mail = emailSenderService.createMailVerify(account, VERIFY_ACCOUNT_TIME_EXPIRE);
+        Mail mail = emailSenderService.createMailVerify(user, VERIFY_ACCOUNT_TIME_EXPIRE);
         emailSenderService.sendEmail(mail);
 
         return new ResponseEntity<>(
-                AccountDTO
+                UserDTO
                         .builder()
-                        .withUsername(account.getUsername())
-                        .withEmail(account.getEmail())
-                        .withFullname(account.getFullname())
-                        .withGender(account.getGender())
-                        .withBirthday(account.getBirthday())
-                        .withAddress(account.getAddress())
+                        .withUsername(user.getUsername())
+                        .withEmail(user.getEmail())
+                        .withFullname(user.getFullname())
                         .build(),
                 HttpStatus.OK);
     }

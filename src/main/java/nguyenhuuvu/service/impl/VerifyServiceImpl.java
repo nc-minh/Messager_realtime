@@ -1,9 +1,11 @@
 package nguyenhuuvu.service.impl;
 
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.exception.AccountHandleException;
-import nguyenhuuvu.model.Account;
-import nguyenhuuvu.repository.AccountRepository;
+import nguyenhuuvu.entity.UserEntity;
+import nguyenhuuvu.entity.VerifyEntity;
+import nguyenhuuvu.exception.UserHandleException;
+import nguyenhuuvu.repository.UserRepository;
+import nguyenhuuvu.repository.VerifyRepository;
 import nguyenhuuvu.service.VerifyService;
 import nguyenhuuvu.utils.DateTimeUtil;
 import org.springframework.stereotype.Service;
@@ -11,30 +13,31 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class VerifyServiceImpl implements VerifyService {
-    final AccountRepository accountRepository;
+    final UserRepository userRepository;
+    final VerifyRepository verifyRepository;
 
     public boolean verifyToken(String token) {
-        Account account = accountRepository.findAccountByVerify_Token(token);
-        return verify(account);
-    }
-
-    public boolean verifyCode(String email, String code) {
-        Account account = accountRepository.findAccountByEmail(email);
-        if (account == null)
-            throw new AccountHandleException("Email is not linked to any accounts");
-        if (account.getVerify().getCode().equals(code))
-            return verify(account);
+        VerifyEntity verify = verifyRepository.findVerifyEntityByToken(token);
+        if (verify != null) {
+            if (!verify.isUsed() && DateTimeUtil.checkTokenExpire(verify.getTimeExpire())) {
+                verify.setUsed(true);
+                verify.getUserEntity().setEnabled(true);
+                verifyRepository.save(verify);
+                return true;
+            }
+        }
         return false;
     }
 
-    private boolean verify(Account account) {
-        if (account != null) {
-            if (account.getVerify().isUsed())
-                return false;
-            if (DateTimeUtil.checkTokenExpire(account.getVerify().getTimeExpire())) {
-                account.getVerify().setUsed(true);
-                account.setEnabled(true);
-                accountRepository.save(account);
+    public boolean verifyCode(String email, String code) {
+        UserEntity user = userRepository.findUserEntityByEmail(email);
+        if (user == null)
+            throw new UserHandleException("Email is not linked to any accounts");
+        if (user.getVerifyEntity().getCode().equals(code)) {
+            if (!user.getVerifyEntity().isUsed()) {
+                user.getVerifyEntity().setUsed(true);
+                user.setEnabled(true);
+                userRepository.save(user);
                 return true;
             }
         }

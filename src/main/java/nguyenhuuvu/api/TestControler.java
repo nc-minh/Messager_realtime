@@ -1,19 +1,19 @@
 package nguyenhuuvu.api;
 
 import lombok.AllArgsConstructor;
-import nguyenhuuvu.model.Account;
-import nguyenhuuvu.repository.AccountRepository;
+import nguyenhuuvu.entity.UserEntity;
+import nguyenhuuvu.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
 public class TestControler {
-    final AccountRepository accountRepository;
+    final UserService userService;
 
     @RequestMapping("/")
-    public Account fetchAccount()
+    public UserEntity fetchAccount()
     {
-        return accountRepository.findAccountByEmail("s2huuvuno1@gmail.com");
+        return userService.findUserByEmail("s2huuvuno1@gmail.com");
     }
 }
