@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user", indexes = {
@@ -44,4 +45,7 @@ public class UserEntity {
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "verify_id")
     private VerifyEntity verifyEntity;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<JoinEntity> joins;
 }

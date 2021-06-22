@@ -10,6 +10,7 @@ import nguyenhuuvu.service.UserService;
 import nguyenhuuvu.utils.Constant;
 import nguyenhuuvu.utils.DateTimeUtil;
 import nguyenhuuvu.utils.UserUtil;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,5 +64,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserEntity> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<UserEntity> findUserByFullnameOrEmailLimit(String q, Pageable pageable) {
+        return userRepository.searchUsersLikeFullNameOrEqualEmail(q, q, pageable);
     }
 }
