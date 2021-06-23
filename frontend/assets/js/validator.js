@@ -111,6 +111,7 @@ function getParent(element, selector){
         function handleClearError(event){
             var formGroup = getParent(event.target, '.form-group');
                 formGroup.classList.add('invalid');
+            
             if(formGroup.classList.contains('invalid')){
                 formGroup.classList.remove('invalid');
 
@@ -119,6 +120,10 @@ function getParent(element, selector){
                     formMessage.innerText = '';
                 }
             }
+
+            
+
+            
         }
     }
     //Xử lí hành vi mặc định submit
@@ -165,9 +170,10 @@ function getParent(element, selector){
                 }, {});
                 //gọi lại hàm onsubmit trả về giá trị của form
                 _this.onSubmit(formValues);
-            }else{
-                formElement.submit();
             }
+            // else{
+            //     formElement.submit();
+            // }
         }
     }
 }

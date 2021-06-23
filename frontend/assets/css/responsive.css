@@ -24,12 +24,12 @@
 }
 
 /* tablet */
-@media (min-width: 740px) and (max-width: 1023px){
+@media (min-width: 768px) and (max-width: 1023px){
     
 }
 
 /* mobile */
-@media (max-width: 739px){
+@media (max-width: 768px){
     .auth-form{
         width: 100vw;
     }
@@ -63,6 +63,21 @@
 
     /* chat */
     .container__left{
-        display: none;
+        width: 100%;
+    }
+
+    /* chat options */
+
+    
+}
+
+/* ip 5 */
+@media (max-width: 360px){
+    .container__left{
+        min-width: 320px;
+    }
+
+    .messager-item__content-msg-text{
+        width: 155px;
     }
 }

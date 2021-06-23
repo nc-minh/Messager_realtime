@@ -3,12 +3,16 @@
     --primary-color-hover: #af3c3c;
     --white-color: #fff;
     --black-color: #000;
+    --background-index-color: #000;
     --red-color: #ff0000;
-    --text-color: #f2f2f3;
+    --text-white-color: #f2f2f3;
+    --text-black-color: #333;;
     --border-color: #228B22;
     --line-color: #393a3b;
     --line-color-hover: #616060;
     --background-messager-color: #242526;
+    --background-backlight-color: #0f0f0f;
+    --pink-color: #f55771;
 
 
     -ms--primary-color: #A52A2A;

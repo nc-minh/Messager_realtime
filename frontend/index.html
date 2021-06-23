@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/icon/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="assets/icon/icofont/icofont.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <title>Home</title>
 </head>
@@ -19,7 +19,6 @@
         <div class="app__container">
             <div class="container__bg">
             </div>
-
             <div class="container__content">
                 <!-- logo svg -->
                 <div class="container__content__logo">
@@ -45,7 +44,7 @@
                 <div class="container__content__footer">
                     <ul class="footer__contact">
                         <li class="footer__item">
-                            <a href="assets/pages/404.html">Giới Thiệu</a>
+                            <a href="assets/pages/chat.html">Giới Thiệu</a>
                         </li>
                         <li class="footer__item">
                             <a href="assets/pages/404.html">Trợ Giúp</a>
@@ -56,10 +55,11 @@
                     </ul>
     
                     <div class="footer__hello">
-                        Build with <i class="heart-icon ti-heart"></i> by Dev &copy;
+                        Build with <i class="heart-icon icofont-heart"></i> by Dev &copy;
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 
@@ -78,21 +78,21 @@
                             <span class="auth-form__switch-btn login">Đăng nhập</span>
                         </div>
     
-                        <form action="" method="POST" class="auth-form__form" id="register-form">
+                        <form method="post" class="auth-form__form" id="register-form">
                             <div class="form-group">
                                 <input id="fullname" name="fullname" rules="required" type="text" placeholder="Tên của bạn" class="form-control">
-                                <span class="form-message"></span>
+                                <span id="fullname-message" class="form-message"></span>
                             </div>
                             
                             <div class="form-group">
                                 <input id="email" name="email" rules="required|email" type="text" placeholder="VD: email@domain.com" class="form-control">
-                                <span class="form-message"></span>
+                                <span id="email-message" class="form-message"></span>
                             </div>
                             <div class="form-group">
                                 <div class="form-control form-control-password">
                                     <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
-                                        <i class="ti-shine show-hide-password-icon"></i>
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
                                     </span>
                                 </div>
                                 <span class="form-message"></span>
@@ -102,7 +102,7 @@
                                 <div class="form-control form-control-password">
                                     <input id="password_confirmation" name="password" rules="required|confirmed" type="password" placeholder="Nhập lại mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
-                                        <i class="ti-shine show-hide-password-icon"></i>
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
                                     </span>
                                 </div>
                                 <span class="form-message"></span>
@@ -146,19 +146,19 @@
                             <span class="auth-form__switch-btn login">Đăng nhập</span>
                         </div>
     
-                        <form action="" method="POST" class="auth-form__form" id="register-form--confirm">
+                        <form class="auth-form__form" id="register-form--confirm">
                             <div class="form-group">
                                 <input id="password" name="password" rules="required|min:6" type="text" placeholder="Nhập mã xác nhận" class="form-control">
                                 <span class="form-message"></span>
                             </div>
 
-                            <button class="btn btn--primary form-submit">Đăng ký</button>
+                            <button class="btn btn--primary form-submit">Xác minh</button>
                             <div class="btn btn--normal form-submit back">trở lại</div>
                         </form>
     
                         <div class="auth-form__aside">
                             <p class="auth-form__policy-text">Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
-                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a>&
+                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ </a>&
                                 <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
                             </p>
                         </div>
@@ -188,7 +188,7 @@
                                 <div class="form-control form-control-password">
                                     <input id="password" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
-                                        <i class="ti-shine show-hide-password-icon"></i>
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
                                     </span>
                                 </div>
                               <span class="form-message"></span>
@@ -285,12 +285,13 @@
     <script src="assets/js/validator.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
+    <!-- <script src="assets/js/redirect.js"></script> -->
     <script>
-        // var form = new Validator('#register-form');
-        // form.onSubmit = function(formData) {
-        //     console.log(formData);
-        // }
-        Validator('#register-form');
+        var form = new Validator('#register-form');
+        form.onSubmit = function(formData) {
+            console.log(formData)
+        }
+        // Validator('#register-form');
 
         Validator('#login-form');
     </script>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../icon/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="../icon/icofont/icofont.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <title>Home</title>
 </head>
@@ -25,26 +26,26 @@
                             <img src="../img/icon-fb.png" class="header__logo__img" alt="">
                         </a>
                     </div>
-                    <div class="header__search">
-                        <i class="ti-search header__search__icon"></i>
+                    <div class="header__search" title="Tìm kiếm">
+                        <i class="icofont-search-2 header__search__icon"></i>
                         <input type="text" class="header__search__input" placeholder="Tìm kiếm">
                     </div>
                 </div>
 
                 <div class="col l-6 m-6 c-0 header--center">
                     <div class="header--center__nav">
-                        <span class="header--center__nav__content">
-                            <i class="ti-home header--center__nav__icon"></i>
+                        <span class="header--center__nav__content" title="Trang chủ">
+                            <i class="icofont-home header--center__nav__icon"></i>
                         </span>
-                        <span class="header--center__nav__content">
+                        <span class="header--center__nav__content" title="Danh sách bạn bè">
+                            <i class="icofont-users header--center__nav__icon"></i>
+                        </span>
+                        <span class="header--center__nav__content" title="Thông báo">
                             <span class="header--center__nav__content--notifications">9+</span>
-                            <i class="ti-announcement header--center__nav__icon"></i>
+                            <i class="icofont-notification header--center__nav__icon"></i>
                         </span>
-                        <span class="header--center__nav__content">
-                            <i class="ti-user header--center__nav__icon"></i>
-                        </span>
-                        <span class="header--center__nav__content">
-                            <i class="ti-settings header--center__nav__icon"></i>
+                        <span class="header--center__nav__content" title="Cài đặt">
+                            <i class="icofont-ui-settings header--center__nav__icon"></i>
                         </span>
                     </div>
                 </div>
@@ -56,12 +57,12 @@
                                 <img src="../img/avatar.jpg" class="nav__user--avatar__img" alt="">
                             </div>
                             <div class="header--right__nav__user--firstname">
-                                <span>Minh</span>
+                                <span class="nav__user--firstname--text">Minh</span>
                             </div>
                         </div>
 
                         <div class="header--right__nav__content">
-                            <i class="ti-angle-down header--center__nav__icon"></i>
+                            <i class="icofont-caret-down header--center__nav__icon"></i>
                         </div>
                     </div>
                 </div>
@@ -77,34 +78,55 @@
                                 <h1 class="top__nav-left--content">Chat</h1>
                             </div>
                             <div class="top__nav-right">
-                                <div class="top__nav-right-icon">
-                                    <i class="ti-more-alt"></i>
+                                <div class="top__nav-right-icon" title="cuộc trò chuyện mới">
+                                    <i class="icofont-plus-circle"></i>
                                 </div>
                                 <div class="top__nav-right-icon">
-                                    <i class="ti-camera"></i>
+                                    <i class="icofont-camera"></i>
                                 </div>
                                 <div class="top__nav-right-icon">
-                                    <i class="ti-star"></i>
+                                    <i class="icofont-edit"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="left__top__search">
-                            <div class="left__top__search-input">
-                                <i class="ti-search left__top__search-input-icon"></i>
+                            <div class="left__top__search-input" title="Tìm kiếm cuộc trò chuyện">
+                                <i class="icofont-search-2 left__top__search-input-icon"></i>
                                 <input type="text" class="top__search-input" id="top__search-input" placeholder="Tìm kiếm trên Messager">
                             </div>
                         </div>
                     </div>
-                    <div class="container__left__list-messager">
-
-                        <div class="left__list-messager-item clicked">
+                    <div class="container__left__list-messager" id="container__left__list-messager" contenteditable="false">
+                        <div class="left__list-messager-item">
+                            <div class="messager-item__avatar">
+                                <img class="messager-item__avatar__img" src="../img/AnhAnhh.jpg" alt="">
+                                <i class="messager-item__avatar__active"></i>
+                            </div>
+                            <div class="messager-item__content">
+                                <div class="messager-item__content-name">
+                                    <h3>Ánh Ánhh</h3>
+                                </div>
+                                <div class="messager-item__content-msg">
+                                    <span class="messager-item__content-msg-text">text dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dài</span>
+                                    <span class="messager-item__content-msg-time">1 phút</span>
+                                </div>
+                            </div>
+                            <!-- status -->
+                            <div class="messager-item__status">
+                                <div class="messager-item__status-wrap">
+                                    <i class="icofont-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
                                 <i class="messager-item__avatar__active"></i>
                             </div>
                             <div class="messager-item__content">
                                 <div class="messager-item__content-name">
-                                    <h3>Họ và Tên</h3>
+                                    <h3>Nguyễn Công Minh Minh</h3>
                                 </div>
                                 <div class="messager-item__content-msg">
                                     <span class="messager-item__content-msg-text">text dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dài</span>
@@ -114,7 +136,29 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="left__list-messager-item">
+                            <div class="messager-item__avatar">
+                                <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
+                                <i class="messager-item__avatar__active"></i>
+                            </div>
+                            <div class="messager-item__content">
+                                <div class="messager-item__content-name">
+                                    <h3>Tên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài testTên dài test</h3>
+                                </div>
+                                <div class="messager-item__content-msg">
+                                    <span class="messager-item__content-msg-text">text dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dài</span>
+                                    <span class="messager-item__content-msg-time">1 phút</span>
+                                </div>
+                            </div>
+                            <!-- status -->
+                            <div class="messager-item__status">
+                                <div class="messager-item__status-wrap">
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
@@ -136,11 +180,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -158,11 +202,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -180,11 +224,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -202,11 +246,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -224,11 +268,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -246,11 +290,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -268,11 +312,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -290,11 +334,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -312,11 +356,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -334,11 +378,11 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
@@ -356,67 +400,127 @@
                             <!-- status -->
                             <div class="messager-item__status">
                                 <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
+                                    <i class="icofont-check"></i>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="left__list-messager-item">
-                            <div class="messager-item__avatar">
-                                <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
-                                <i class="messager-item__avatar__active"></i>
-                            </div>
-                            <div class="messager-item__content">
-                                <div class="messager-item__content-name">
-                                    <h3>Họ và Tên</h3>
-                                </div>
-                                <div class="messager-item__content-msg">
-                                    <span class="messager-item__content-msg-text">text dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dài</span>
-                                    <span class="messager-item__content-msg-time">1 phút</span>
-                                </div>
-                            </div>
-                            <!-- status -->
-                            <div class="messager-item__status">
-                                <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="left__list-messager-item">
-                            <div class="messager-item__avatar">
-                                <img class="messager-item__avatar__img" src="../img/avatar.jpg" alt="">
-                                <i class="messager-item__avatar__active"></i>
-                            </div>
-                            <div class="messager-item__content">
-                                <div class="messager-item__content-name">
-                                    <h3>Họ và Tên</h3>
-                                </div>
-                                <div class="messager-item__content-msg">
-                                    <span class="messager-item__content-msg-text">text dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dàitext dài</span>
-                                    <span class="messager-item__content-msg-time">1 phút</span>
-                                </div>
-                            </div>
-                            <!-- status -->
-                            <div class="messager-item__status">
-                                <div class="messager-item__status-wrap">
-                                    <i class="ti-check"></i>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
                 <div class="container__right">
-                    
+                    <div class="container__right__messages" id="container__right__messages">
+                        <div class="container__right__messages__header">
+                            <div class="messages__header-info">
+                                <div class="messages__header-info__avatar">
+                                    <img src="../img/AnhAnhh.jpg" alt="" class="messages__header-info__avatar__img">
+                                    <i class="messages__header-info__avatar__active"></i>
+                                </div>
+
+                                <div class="messages__header-info__userchat">
+                                    <div class="messages__header-info__userchat__name">
+                                        <h3>Ánh Ánhh</h3>
+                                    </div>
+
+                                    <div class="messages__header-info__userchat-timeactive">
+                                        <span class="info__userchat-timeactive-item">Hoạt động 1 năm trước</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="messages__header-option">
+                                <div class="messages__header-option__item" title="Gọi điện">
+                                    <i class="icofont-ui-call"></i>
+                                </div>
+                                <div class="messages__header-option__item" title="Cuộc trò chuyện video">
+                                    <i class="icofont-video"></i>
+                                </div>
+                                <div id="option__info" class="messages__header-option__item" aria-label="thông tin">
+                                    <i class="icofont-info-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container__right__option" id="container__right__option">
+                        <div class="right__option__mobile" id="right__option__mobile">
+                            <div class="right__option__mobile--back" id="right__option__mobile--back">
+                                <i class="icofont-arrow-left"></i>
+                            </div>
+                        </div>
+
+                        <div class="right__option__header">
+                            <div class="right__option__header__avatar">
+                                <img src="../img/AnhAnhh.jpg" alt="" class="right__option__header__avatar__img">
+                                <span class="right__option__header__avatar__active"></span>
+                            </div>
+
+                            <div class="right__option__header__info">
+                                <div class="right__option__header__info__name">
+                                    <h3>Ánh Ánhh</h3>
+                                </div>
+
+                                <div class="right__option__header__info__timeactive">
+                                    <span class="right__option__header__info__timeactive__item">Hoạt động 1 năm trước</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right__option__content">
+                            <div class="right__option__content__custom">
+                                <div class="option__content__custom--title">
+                                    <h4>Tuỳ chỉnh đoạn chat</h4>
+                                </div>
+
+                                <div class="option__content__custom__list">
+                                    <div class="option__content__custom__list--item">
+                                        <i class="icofont-ui-theme"></i>
+                                        <h4>Đổi chủ đề</h4>
+                                    </div>
+                                    <div class="option__content__custom__list--item">
+                                        <i class="icofont-like"></i>
+                                        <h4>Thay đổi biểu tượng cảm xúc</h4>
+                                    </div>
+                                    <div class="option__content__custom__list--item">
+                                        <i class="icofont-pencil"></i>
+                                        <h4>Chỉnh sửa biệt danh</h4>
+                                    </div>
+                                    <div class="option__content__custom__list--item">
+                                        <i class="icofont-search-2"></i>
+                                        <h4>Tìm kiếm trong cuộc trò chuyện</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="right__option__content__privacy">
+                                <div class="option__content__privacy--title">
+                                    <h4>Quyền riêng tư và hỗ trợ</h4>
+                                </div>
+
+                                <div class="option__content__privacy__list">
+                                    <div class="option__content__privacy__list--item">
+                                        <i class="icofont-ui-block"></i>
+                                        <h4>Chặn</h4>
+                                    </div>
+                                    <div class="option__content__privacy__list--item">
+                                        <i class="icofont-warning"></i>
+                                        <h4>Báo cáo</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="right__option__content__private__sharing">
+                                <div class="option__content__private__sharing--title">
+                                    <h4>File phương tiện được chia sẻ</h4>
+                                </div>
+
+                                <div class="option__content__private__sharing__list">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
-        
-        <script src="../js/event.js"></script>
-        <script src="../js/handle_dom.js"></script>
-        <script src="../js/messager.js"></script>
     </div>
+    <script src="../js/chat.js"></script>
 </body>
 </html>
