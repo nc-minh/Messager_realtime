@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/email.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/icon/icofont/icofont.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
+    <title>Home</title>
+</head>
+<body>
+    <div class="app" id="app">
+        <div class="app__container">
+            <div class="container__bg">
+            </div>
+            <div class="container__content">
+                <!-- logo svg -->
+                <div class="container__content__logo">
+                    <svg>
+                        <text x="50%" y="50%" fill="transparent" text-anchor="middle">DEV</text>
+                    </svg>
+                </div>
+                <!-- slogan -->
+                <div class="container__content__slogan">
+                    <p class="container__content__slogan__text">Join with me!</p>
+                </div>
+
+                <!-- button login and signup -->
+                <ul class="container__content__join">
+                    <li class="content__join__item">
+                        <button class="content__join__item--link btn btn--primary btn--normal register--sw">Sign Up</button>
+                    </li>
+                    <li class="content__join__item">
+                        <button class="content__join__item--link btn btn--normal login--sw">Log in</button>
+                    </li>
+                </ul>
+
+                <div class="container__content__footer">
+                    <ul class="footer__contact">
+                        <li class="footer__item">
+                            <a href="assets/pages/chat.html">Giới Thiệu</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="assets/pages/404.html">Trợ Giúp</a>
+                        </li>
+                        <li class="footer__item">
+                            <a href="assets/pages/404.html">Chính sách &amp; Điều khoản</a>
+                        </li>
+                    </ul>
+    
+                    <div class="footer__hello">
+                        Build with <i class="heart-icon icofont-heart"></i> by Dev &copy;
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal" id="modal">
+        <div class="modal__overlay" id="modal__overlay">
+    
+        </div>
+        <div class="modal__body">
+                <!-- register form -->
+                <div class="auth-form" id="register_form">
+                   
+                    <div class="auth-form__container">
+                        <div class="auth-form__header">
+                            <h3 class="auth-form__heading">Đăng ký</h3>
+                            <span class="auth-form__switch-btn login">Đăng nhập</span>
+                        </div>
+    
+                        <form method="post" class="auth-form__form" id="register-form">
+                            <div class="form-group">
+                                <input id="fullname" name="fullname" rules="required" type="text" placeholder="Tên của bạn" class="form-control">
+                                <span id="fullname-message" class="form-message"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input id="email" name="email" rules="required|email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                <span id="email-message" class="form-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-control form-control-password">
+                                    <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
+                                    <span class="show-hide-password">
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
+                                    </span>
+                                </div>
+                                <span class="form-message"></span>
+                            </div>
+                        
+                            <div class="form-group">
+                                <div class="form-control form-control-password">
+                                    <input id="password_confirmation" name="password" rules="required|confirmed" type="password" placeholder="Nhập lại mật khẩu" class="form-control-input showHidePass">
+                                    <span class="show-hide-password">
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
+                                    </span>
+                                </div>
+                                <span class="form-message"></span>
+                            </div>
+                            <button class="btn btn--primary form-submit register-confirm" id="register-confirm">Đăng ký</button>
+                            <div class="btn btn--normal form-submit back">trở lại</div>
+                        </form>
+    
+                        <div class="auth-form__aside">
+                            <p class="auth-form__policy-text">Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
+                                <a href="assets/pages/404.html" class="auth-form__text-link">Điều khoản dịch vụ </a>&
+                                <a href="assets/pages/404.html" class="auth-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div>
+    
+                    </div>
+    
+                    <div class="auth-form__socials">
+                        <a href="" class="auth-form__socials--facebook btn btn--size-s">
+                            <i class="auth-form__socials-icon ti-facebook"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Facebook
+                            </span>
+                        </a>
+                        <a href="" class="auth-form__socials--google btn btn--size-s">
+                            <i class="auth-form__socials-icon ti-google"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Google
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- register form end-->
+
+                <!-- confirm code -->
+                <div class="auth-form" id="register_form_confirm">
+                   
+                    <div class="auth-form__container">
+                        <div class="auth-form__header">
+                            <h3 class="auth-form__heading">Nhập mã đăng ký</h3>
+                            <span class="auth-form__switch-btn login">Đăng nhập</span>
+                        </div>
+    
+                        <form class="auth-form__form" id="form_register_confirm">
+                            <div class="form-group">
+                                <input id="code" name="password" rules="required|min:6" type="text" placeholder="Nhập mã xác nhận" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+
+                            <button class="btn btn--primary form-submit">Xác minh</button>
+                            <div class="btn btn--normal form-submit back">trở lại</div>
+                        </form>
+    
+                        <div class="auth-form__aside">
+                            <p class="auth-form__policy-text">Bằng việc đăng ký, bạn đã đồng ý với chúng tôi về
+                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ </a>&
+                                <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div>
+    
+                    </div>
+    
+                </div>
+                <!-- confirm code end-->
+    
+    
+                <!-- login form -->
+                <div class="auth-form" id="login_form">  
+                   <div class="auth-form__container">
+                        <div class="auth-form__header">
+                            <h3 class="auth-form__heading login">Đăng nhập</h3>
+                            <span class="auth-form__switch-btn register">Đăng ký</span>
+                        </div>
+    
+                        <form action="" method="POST" class="auth-form__form" id="login-form">
+    
+                            <div class="form-group">
+                                <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                        
+                            <div class="form-group">
+                                <div class="form-control form-control-password">
+                                    <input id="password" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
+                                    <span class="show-hide-password">
+                                        <i class="icofont-sun-alt show-hide-password-icon"></i>
+                                    </span>
+                                </div>
+                              <span class="form-message"></span>
+                            </div>
+                        
+                            <button class="btn btn--primary form-submit">Đăng nhập</button>
+                            <div class="btn btn--normal form-submit back">trở lại</div>
+                        </form>
+    
+                        <div class="auth-form__aside">
+                            <div class="auth-form__help">
+                                <span class="auth-form__help-link auth-form__help-forgot" id="forgot">
+                                    Quên mật khẩu
+                                </span>
+                                <span class="auth-form__help-separate"></span>
+                                <a href="assets/pages/404.html" class="auth-form__help-link">
+                                    Cần trợ giúp?
+                                </a>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <div class="auth-form__socials">
+                        <a href="" class="auth-form__socials--facebook btn btn--size-s">
+                            <i class="auth-form__socials-icon ti-facebook"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Facebook
+                            </span>
+                        </a>
+                        <a href="" class="auth-form__socials--google btn btn--size-s">
+                            <i class="auth-form__socials-icon ti-google"></i>
+                            <span class="auth-form__socials-title">
+                                Kết nối với Google
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- login form end -->
+
+                <!-- forget pass -->
+                <div class="auth-form" id="forget_form">  
+                    <div class="auth-form__container">
+                         <div class="auth-form__header">
+                             <h3 class="auth-form__heading">Quên mật khẩu</h3>
+                             <span class="auth-form__switch-btn login">Đăng nhập</span>
+                         </div>
+     
+                         <form action="temp.html" method="POST" class="auth-form__form" id="login-form">
+     
+                             <div class="form-group">
+                               <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
+                               <span class="form-message"></span>
+                             </div>
+                         
+                             <button class="btn btn--primary form-submit">Quên mật khẩu</button>
+                             <div class="btn btn--normal form-submit back">trở lại</div>
+                         </form>
+     
+                         <div class="auth-form__aside">
+                             <div class="auth-form__help">
+                                 <span class="auth-form__help-link auth-form__help-forgot register">
+                                     Đăng ký
+                                 </span>
+                                 <span class="auth-form__help-separate"></span>
+                                 <a href="assets/pages/404.html" class="auth-form__help-link">
+                                     Cần trợ giúp?
+                                 </a>
+                             </div>
+                         </div>
+     
+                     </div>
+     
+                     <div class="auth-form__socials">
+                         <a href="" class="auth-form__socials--facebook btn btn--size-s">
+                             <i class="auth-form__socials-icon ti-facebook"></i>
+                             <span class="auth-form__socials-title">
+                                 Kết nối với Facebook
+                             </span>
+                         </a>
+                         <a href="" class="auth-form__socials--google btn btn--size-s">
+                             <i class="auth-form__socials-icon ti-google"></i>
+                             <span class="auth-form__socials-title">
+                                 Kết nối với Google
+                             </span>
+                         </a>
+                     </div>
+                 </div>
+                 <!-- forget pass end -->
+        </div>
+    </div>
+    
+
+    <script src="assets/js/validator.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <!-- <script src="assets/js/redirect.js"></script> -->
+    <script>
+        var form = new Validator('#register-form');
+        form.onSubmit = function(formData) {
+            console.log(formData)
+        }
+        // Validator('#register-form');
+
+        Validator('#login-form');
+    </script>
+</body>
+</html>
