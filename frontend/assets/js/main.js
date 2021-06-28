@@ -83,28 +83,3 @@ function showHidePass(){
     }
 }
 showHidePass();
-
-
-// 
-const login_form = document.getElementById('login-form');
-const form_message_test = document.getElementById('form-message_test');
-login_form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const password_login = document.getElementById('password-login').value;
-    if(password_login === 'adminMinh'){
-        form_message_test.innerHTML = '';
-        const app__container = document.querySelector('.app__container');
-        const modal = document.getElementById('modal');
-        const app__header = document.querySelector('.app__header');
-        const app__body = document.querySelector('.app__body');
-        app__header.style.display = 'flex';
-        app__body.style.display = 'block';
-        app__container.style.display = 'none';
-        modal.style.display = 'none';
-        renderChat();
-    }else{
-        let msg = 'bạn không có quyền được vào web đang fix';
-        form_message_test.innerHTML = msg;
-        form_message_test.style.color = 'red';
-    }
-  })

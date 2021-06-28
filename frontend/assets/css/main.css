@@ -503,7 +503,8 @@ background-color: var(--primary-color-hover);
 
 
 .container__left{
-    min-width: 360px;
+    /* min-width: 360px; */
+    flex: 1;
     background-color: var(--background-messager-color);
 }
 
@@ -714,7 +715,7 @@ background-color: var(--primary-color-hover);
 /* container right */
 
 .container__right{
-    flex: 1;
+    flex: 2;
     background-color: var(--background-messager-color);
     border-right: 3px solid var(--line-color);
     display: flex;
@@ -722,7 +723,7 @@ background-color: var(--primary-color-hover);
 
 .container__right__messages{
     border-left: 3px solid var(--line-color);
-    flex: 1;
+    flex: 2;
     display: none;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -820,7 +821,8 @@ background-color: var(--primary-color-hover);
     overflow-y: scroll;
     overflow-x: hidden;
     height: calc(100vh - 65px);
-    width: 35%;
+    /* width: 400px; */
+    flex: 1;
 }
 
 .right__option__mobile{
@@ -950,7 +952,7 @@ background-color: var(--primary-color-hover);
     width: 16px;
     height: 16px;
     align-items: flex-end;
-    margin: 0 8px;
+    margin: 0 4px;
 }
 
 .container__right__chat-content__item__avatar__img-msg-receive{
@@ -1035,7 +1037,7 @@ background-color: var(--primary-color-hover);
     border-radius: 50%;
     border: solid 2px var(--line-color-hover);
     color: var(--line-color-hover);
-    margin: 0 8px;
+    margin: 0 4px;
 }
 
 .container__right__chat-content__item--active i{

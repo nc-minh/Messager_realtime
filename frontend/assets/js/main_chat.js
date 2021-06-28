@@ -1,32 +1,34 @@
 // event show hide options info chatuser
 
-let btn_option__info = document.getElementById('option__info');
-var frame_container__right__messages = document.getElementById('container__right__messages');
-let frame_right__option__mobile = document.getElementById('right__option__mobile');
-let btn_right__option__mobile__back = document.getElementById('right__option__mobile--back');
-let frame_container__right__option = document.getElementById('container__right__option');
-btn_option__info.addEventListener('click',showHideOptions);
-btn_right__option__mobile__back.addEventListener('click',showHideOptions);
-function showHideOptions(){
-    if(frame_container__right__option.style.display == 'none'){
+
+
+var frame_right__option__mobile = document.getElementById('right__option__mobile');
+
+const btn_option__info = document.getElementById('option__info');
+const frame_container__right__messages = document.getElementById('container__right__messages');
+const frame_container__right__option = document.getElementById('container__right__option');
+const container__left = document.querySelector('.container__left');
+
+btn_option__info.addEventListener('click',()=>{
+    if(window.innerWidth > 1200){
         frame_container__right__option.style.display = 'block';
-        if (window.innerWidth < 1200){
-            frame_container__right__messages.style.display = 'none';
-            frame_container__right__option.style.width = '100%';
-        }else{
-            frame_container__right__option.style.width = '35%'; 
-            frame_container__right__messages.style.display = 'block';
-        }
+        container__left.style.display = 'block';
+    }else{
+        frame_container__right__option.style.display = 'block';
+        frame_container__right__messages.style.display = 'none';
+        frame_container__right__option.style.flex = '1';
     }
-    else
-    {
+});
+const btn_right__option__mobile__back = document.getElementById('right__option__mobile--back');
+btn_right__option__mobile__back.addEventListener('click',()=>{
+    if(window.innerWidth > 1200){
         frame_container__right__option.style.display = 'none';
-        if (window.innerWidth < 1200){
-        frame_container__right__messages.style.display = 'block'
-        }
+        container__left.style.display = 'block';
+    }else{
+        frame_container__right__option.style.display = 'none';
+        frame_container__right__messages.style.display = 'flex';
     }
-}
-showHideOptions();
+});
 
 
 function clickShowMessage(){
@@ -40,7 +42,7 @@ function clickShowMessage(){
                 frame_container__right__messages.style.display = 'flex';
                 if(window.innerWidth < 768){
                     container__left.style.display = 'none';
-                    container__right.style.display = 'block';
+                    container__right.style.display = 'flex';
                 }
             }
             Message[i].classList.toggle('clicked');

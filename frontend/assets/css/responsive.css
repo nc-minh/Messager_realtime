@@ -63,7 +63,11 @@
 
     /* chat */
     .container__left{
-        width: 100%;
+        flex: 1;
+    }
+
+    .container__right{
+        display: none;
     }
 
     /* chat options */
@@ -75,12 +79,29 @@
 }
 
 /* ip 5 */
-@media (max-width: 360px){
+@media (max-width: 370px){
     .container__left{
         min-width: 320px;
+    }
+
+    .container__right__messages__header{
+        padding: 0;
+    }
+
+    .messages__header-info{
+        padding-left: 4px;
+    }
+
+    .messages__header-option__item{
+        margin: 0 4px;
     }
 
     .messager-item__content-msg-text{
         width: 155px;
     }
+
+    
+
+
+    
 }
