@@ -68,7 +68,10 @@
 
     /* chat options */
 
-    
+    /* back list msg */
+    .messages__header-info-back{
+        display: block;
+    }
 }
 
 /* ip 5 */

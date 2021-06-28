@@ -3,24 +3,30 @@
 
 // https://apidevchat.herokuapp.com/api/v1/accounts/verification api verify
 
-var api = 'https://apidevchat.herokuapp.com/api/v1/accounts';
 
-var form = document.getElementById('register-form');
+// https://apidevchat.herokuapp.com/api/v1/accounts/authenticate api signin
+
+
+// https://apidevchat.herokuapp.com/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
+
+const API_SIGNUP = 'https://apidevchat.herokuapp.com/api/v1/accounts';
+const CODE_CONFIRM = 'https://apidevchat.herokuapp.com/api/v1/accounts/verification';
+const API_SIGNIN = 'https://apidevchat.herokuapp.com/api/v1/accounts/authenticate';
+
+var formRegister = document.getElementById('register-form');
 var btnForm = document.getElementById('register-confirm');
 var email_message = document.getElementById('email-message');
 var register_form = document.getElementById('register_form');
 var register_form_confirm = document.getElementById('register_form_confirm');
-var login_form = document.getElementById('login_form');
 var login = document.querySelectorAll('.login');
-console.log(login);
 
-form.addEventListener('submit', (e)=>{
+formRegister.addEventListener('submit', (e)=>{
 
   e.preventDefault();
   var raw = JSON.stringify({
     "fullname": document.getElementById('fullname').value,
-    "email": document.getElementById('email').value,
-    "password": document.getElementById('password').value,
+    "email": document.getElementById('email-register').value,
+    "password": document.getElementById('password-register').value,
   });
   
   var requestOptions = {
@@ -32,7 +38,7 @@ form.addEventListener('submit', (e)=>{
     redirect: 'follow'
   };
   
-  fetch(api, requestOptions)
+  fetch(API_SIGNUP, requestOptions)
   .then(function (response) {
       if(response.status == 400){
           console.log('nhập thông tin sai');
@@ -51,12 +57,10 @@ form.addEventListener('submit', (e)=>{
       return response.json();
   })
   .then(function (data) {
-  
-    while(data==null){
-      console.log('load')
-    }
     if(data.errorCode == 'devchat001'){
       console.log('chưa nhập thông tin hoặc nhập thiếu');
+    }else if(data.errorCode == "devchat000"){
+      console.warn('Lỗi chưa xác định!');
     }else if(data.message == undefined){
       email_message.innerHTML = '';
     }
@@ -70,8 +74,6 @@ form.addEventListener('submit', (e)=>{
       console.log("đã xảy ra lỗi!")
       console.log(error);
   });
-
-  
 })
 
 

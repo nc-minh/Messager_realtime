@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/img/email.png" type="image/x-icon"/>
+    <!-- <link rel="icon" href="assets/img/email.png" type="image/x-icon"/> -->
+    <link href="./assets/img/email.png" rel="shortcut icon" type="image/png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/grid.css">
@@ -15,7 +16,7 @@
     <title>Home</title>
 </head>
 <body>
-    <div class="app">
+    <div class="app" id="app">
         <div class="app__container">
             <div class="container__bg">
             </div>
@@ -44,7 +45,7 @@
                 <div class="container__content__footer">
                     <ul class="footer__contact">
                         <li class="footer__item">
-                            <a href="assets/pages/chat.html">Giới Thiệu</a>
+                            <a href="assets/pages/404.html">Giới Thiệu</a>
                         </li>
                         <li class="footer__item">
                             <a href="assets/pages/404.html">Trợ Giúp</a>
@@ -78,19 +79,19 @@
                             <span class="auth-form__switch-btn login">Đăng nhập</span>
                         </div>
     
-                        <form method="post" class="auth-form__form" id="register-form">
+                        <form class="auth-form__form" id="register-form">
                             <div class="form-group">
-                                <input id="fullname" name="fullname" rules="required" type="text" placeholder="Tên của bạn" class="form-control">
+                                <input id="fullname" name="fullname" rules="required|min:5|max:30" type="text" placeholder="Tên của bạn" class="form-control">
                                 <span id="fullname-message" class="form-message"></span>
                             </div>
                             
                             <div class="form-group">
-                                <input id="email" name="email" rules="required|email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                <input id="email-register" name="email" rules="required|email" type="text" placeholder="VD: email@domain.com" class="form-control">
                                 <span id="email-message" class="form-message"></span>
                             </div>
                             <div class="form-group">
                                 <div class="form-control form-control-password">
-                                    <input id="password" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
+                                    <input id="password-register" name="password" rules="required|min:6" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
                                         <i class="icofont-sun-alt show-hide-password-icon"></i>
                                     </span>
@@ -146,9 +147,9 @@
                             <span class="auth-form__switch-btn login">Đăng nhập</span>
                         </div>
     
-                        <form class="auth-form__form" id="register-form--confirm">
+                        <form class="auth-form__form" id="form_register_confirm">
                             <div class="form-group">
-                                <input id="password" name="password" rules="required|min:6" type="text" placeholder="Nhập mã xác nhận" class="form-control">
+                                <input id="code" name="password" rules="required|min:6" type="text" placeholder="Nhập mã xác nhận" class="form-control">
                                 <span class="form-message"></span>
                             </div>
 
@@ -177,24 +178,25 @@
                             <span class="auth-form__switch-btn register">Đăng ký</span>
                         </div>
     
-                        <form action="" method="POST" class="auth-form__form" id="login-form">
+                        <form class="auth-form__form" id="login-form">
     
                             <div class="form-group">
-                                <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
+                                <input id="email-login" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
                                 <span class="form-message"></span>
                             </div>
                         
                             <div class="form-group">
                                 <div class="form-control form-control-password">
-                                    <input id="password" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
+                                    <input id="password-login" name="password" rules="required" type="password" placeholder="Nhập mật khẩu" class="form-control-input showHidePass">
                                     <span class="show-hide-password">
                                         <i class="icofont-sun-alt show-hide-password-icon"></i>
                                     </span>
                                 </div>
-                              <span class="form-message"></span>
+                              <span id="form-message_test" class="form-message"></span>
                             </div>
                         
                             <button class="btn btn--primary form-submit">Đăng nhập</button>
+                            <!-- <a href="assets/pages/chat.html" class="btn btn--primary form-submit">Đăng nhập</a> -->
                             <div class="btn btn--normal form-submit back">trở lại</div>
                         </form>
     
@@ -237,10 +239,10 @@
                              <span class="auth-form__switch-btn login">Đăng nhập</span>
                          </div>
      
-                         <form action="temp.html" method="POST" class="auth-form__form" id="login-form">
+                         <form class="auth-form__form" id="forget-form">
      
                              <div class="form-group">
-                               <input id="email" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
+                               <input id="email-forget" name="email" rules="required" type="text" placeholder="VD: email@domain.com" class="form-control">
                                <span class="form-message"></span>
                              </div>
                          
@@ -281,10 +283,10 @@
         </div>
     </div>
     
-
     <script src="assets/js/validator.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/api.js"></script>
+    <script src="assets/js/chat.js"></script>
     <!-- <script src="assets/js/redirect.js"></script> -->
     <script>
         var form = new Validator('#register-form');

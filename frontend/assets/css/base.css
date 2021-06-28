@@ -129,3 +129,22 @@ html {
     z-index: 1;
     animation: growth linear 0.1s;
 }
+ 
+  
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /* background: transparent; */
+    border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}

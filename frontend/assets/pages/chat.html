@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../icon/themify-icons-font/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../icon/icofont/icofont.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">  
     <title>Home</title>
@@ -22,7 +21,7 @@
                 <!-- header left -->
                 <div class="col l-3 m-3 c-6 header--left">
                     <div class="header__logo">
-                        <a href="/" class="header__logo-link">
+                        <a href="../../index.html" class="header__logo-link">
                             <img src="../img/icon-fb.png" class="header__logo__img" alt="">
                         </a>
                     </div>
@@ -69,13 +68,13 @@
 
         </header>
 
-        <div class="app__body grid">
+        <div class="app__body grid">    
             <section class="body__container row no-gutters">
                 <div class="container__left">
                     <div class="container__left__top">
                         <div class="left__top__nav">
                             <div class="top__nav-left">
-                                <h1 class="top__nav-left--content">Chat</h1>
+                                <h1 class="top__nav-left--content">Chats</h1>
                             </div>
                             <div class="top__nav-right">
                                 <div class="top__nav-right-icon" title="cuộc trò chuyện mới">
@@ -96,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container__left__list-messager" id="container__left__list-messager" contenteditable="false">
+                    <div class="container__left__list-messager"  id="container__left__list-messager" contenteditable="false">
                         <div class="left__list-messager-item">
                             <div class="messager-item__avatar">
                                 <img class="messager-item__avatar__img" src="../img/AnhAnhh.jpg" alt="">
@@ -411,6 +410,9 @@
                     <div class="container__right__messages" id="container__right__messages">
                         <div class="container__right__messages__header">
                             <div class="messages__header-info">
+                                <div class="messages__header-info-back">
+                                    <i class="icofont-circled-left"></i>
+                                </div>
                                 <div class="messages__header-info__avatar">
                                     <img src="../img/AnhAnhh.jpg" alt="" class="messages__header-info__avatar__img">
                                     <i class="messages__header-info__avatar__active"></i>
@@ -422,7 +424,7 @@
                                     </div>
 
                                     <div class="messages__header-info__userchat-timeactive">
-                                        <span class="info__userchat-timeactive-item">Hoạt động 1 năm trước</span>
+                                        <span class="info__userchat-timeactive-item">Đang hoạt động</span>
                                     </div>
                                 </div>
                             </div>
@@ -438,6 +440,137 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="container__right__messages__wrap">
+                            <div class="container__right__chat-content">
+                                <div class="container__right__chat-content__wrap" id="chat_wrap">
+                                    <!-- receive msg -->
+
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__wrap-msg-receive">
+                                            <div class="container__right__chat-content__item__avatar-msg-receive">
+                                                <img src="../img/AnhAnhh.jpg" alt="" class="container__right__chat-content__item__avatar__img-msg-receive">
+                                            </div>
+            
+                                            <span class="container__right__chat-content__item__detail__wrap-msg-msg-receive">
+                                                <div>yêu anh Minh 🧡</div>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__wrap-msg-receive">
+                                            <div class="container__right__chat-content__item__avatar-msg-receive">
+                                                <img src="../img/AnhAnhh.jpg" alt="" class="container__right__chat-content__item__avatar__img-msg-receive">
+                                            </div>
+            
+                                            <span class="container__right__chat-content__item__detail__wrap-msg-msg-receive">
+                                                <div>yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh yêu anh Minh  🧡</div>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- send msg -->
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__detail msg-send">
+                                            <span class="container__right__chat-content__item__detail__wrap-msg">
+                                                <div>1, SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.</div>
+                                            </span>
+    
+                                            <div class="container__right__chat-content__item--active">
+                                                <i class="icofont-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__detail msg-send">
+                                            <span class="container__right__chat-content__item__detail__wrap-msg">
+                                                <div>1, SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.</div>
+                                            </span>
+    
+                                            <div class="container__right__chat-content__item--active">
+                                                <i class="icofont-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__detail msg-send">
+                                            <span class="container__right__chat-content__item__detail__wrap-msg">
+                                                <div>1, SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.</div>
+                                            </span>
+    
+                                            <div class="container__right__chat-content__item--active">
+                                                <i class="icofont-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__detail msg-send">
+                                            <span class="container__right__chat-content__item__detail__wrap-msg">
+                                                <div>1, SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.SV Xem file DanhSach.BTL để biết mã đề BTL của mình, xem file đề để làm.</div>
+                                            </span>
+    
+                                            <div class="container__right__chat-content__item--active">
+                                                <i class="icofont-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container__right__chat-content__item">
+                                        <div class="container__right__chat-content__item__detail msg-send">
+                                            <span class="container__right__chat-content__item__detail__wrap-msg">
+                                                <img src="../img/AnhAnhh.jpg">
+                                            </span>
+                                
+                                            <div class="container__right__chat-content__item--active">
+                                                <i class="icofont-check"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="container__right__messages-actions">
+                                <div class="container__right__messages-actions__item">
+                                    <i class="icofont-plus-circle"></i>
+                                </div>
+                                <label class="container__right__messages-actions__item" for="select__img">
+                                    <input type="file" alt="" hidden id="select__img" multiple="multiple" accept="image/*">
+                                    <i class="icofont-image"></i>
+                                </label>
+                                <div class="container__right__messages-actions__item">
+                                    <i class="icofont-gift"></i>
+                                </div>
+                                <div class="container__right__messages-actions__input">
+                                    <div class="container__right__messages-actions__input__wrap">
+                                        <div class="container__right__messages-actions__input__list-img">
+                                            <div class="listImg__send" id="send_img">
+                                            <!-- img added -->
+                                                <!-- <div class="img__selected">
+                                                    <div class="img__selected__delete-img">
+                                                        <i class="icofont-close-circled"></i>
+                                                    </div>
+                                                    <div class="img__selected__item">
+                                                        <img id="urlImg" src="../img/AnhAnhh.jpg" alt="" class="img__selected__item__img">
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <label class="input__list-img__label-select" for="select__img">
+                                                <i class="icofont-file-image"></i>
+                                            </label>
+                                        </div>
+
+                                        <div class="container__right__messages-actions__input__item" id="chat_input" contenteditable="true"></div>
+                                    </div>
+                                    <div class="container__right__messages-actions__icon">
+                                        <i class="icofont-heart-eyes"></i>
+                                    </div>
+                                </div>
+                                <div class="container__right__messages-actions__item">
+                                    <i class="icofont-like"></i>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="container__right__option" id="container__right__option">
