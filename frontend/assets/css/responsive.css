@@ -24,28 +24,12 @@
 }
 
 /* tablet */
-@media (min-width: 768px) and (max-width: 1023px){
-    
+@media (min-width: 740px) and (max-width: 1023px){
+    /* 768px */
 }
 
-/* mobile */
+/* ipad 768 */
 @media (max-width: 768px){
-    .auth-form{
-        width: 100vw;
-    }
-
-    .auth-form__socials{
-        flex-direction: column;
-    }
-
-    .form-group{
-        margin-bottom: 8px;
-    }
-
-    .auth-form__header{
-        margin-top: 0;
-    }
-
     /* header chat center */
     .header__search{
         width: 40px;
@@ -78,6 +62,32 @@
     }
 }
 
+/* mobile */
+@media (max-width: 739px){
+    .auth-form{
+        width: 100vw;
+    }
+
+    .auth-form__socials{
+        flex-direction: column;
+    }
+
+    .form-group{
+        margin-bottom: 8px;
+    }
+
+    .auth-form__header{
+        margin-top: 0;
+    }
+
+    /* option friend */
+    /* img send and receiver */
+    .container__right__chat-content__item__detail__wrap-msg img{
+        width: 240px;
+    }
+    
+}
+
 /* ip 5 */
 @media (max-width: 370px){
     .container__left{
@@ -100,8 +110,31 @@
         width: 155px;
     }
 
-    
+    /* img send and receiver */
+    .container__right__chat-content__item__detail__wrap-msg img{
+        width: 200px;
+    }
 
+    /* option user */
+    .header--right__nav__content__options{
+        width: 300px;
+    }
+
+
+    /* list friend */
+    .body__friend__container__content-list-item-wrap{
+        height: 270px;
+    }
+
+    .body__friend__container__content-list-item-wrap__avatar{
+        height: 180px;
+    }
+
+    /* time send and receiver */
+    .container__right__chat-content__item__detail__wrap-msg-msg-receive__time{
+        right: -64px;
+        padding: 5px 2px;
+    }
 
     
 }

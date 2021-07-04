@@ -40,7 +40,7 @@ function clickShowMessage(){
             for(let i = 0; i < Message.length; i++){
                 Message[i].classList.remove('clicked');
                 frame_container__right__messages.style.display = 'flex';
-                if(window.innerWidth < 768){
+                if(window.innerWidth < 769){
                     container__left.style.display = 'none';
                     container__right.style.display = 'flex';
                 }
@@ -145,6 +145,7 @@ chat_input.addEventListener('paste', (e) => {
     
 })
 
+// scroll  onbottom when send or receiver
 function updateScroll(){
     var element = document.querySelector('.container__right__chat-content');
     element.scrollTop = element.scrollHeight;
@@ -167,7 +168,7 @@ function handleEventSend() {
     let message = chat_input.innerText.trim();
     if (!message){
         chat_input.innerText = '';
-        console.log('đéo được chát khoảng trắng');
+        console.error('không được chát khoảng trắng');
         return 0;
     }else{
         chat_input.innerText = '';
@@ -184,7 +185,7 @@ function createSendMessage(message)
     messageElement.innerHTML = `
     <div class="container__right__chat-content__item__detail msg-send">
         <span class="container__right__chat-content__item__detail__wrap-msg">
-            <div id="msg"></div>
+            <div id="msg-send"></div>
         </span>
 
         <div class="container__right__chat-content__item--active">
@@ -192,7 +193,7 @@ function createSendMessage(message)
         </div>
     </div>
     `;
-    messageElement.querySelector('#msg').innerText = message;
+    messageElement.querySelector('#msg-send').innerText = message;
     return messageElement;
 }
 
@@ -249,3 +250,41 @@ function backListMsg(){
 backListMsg();
 
 
+function handleEventReceiver(url) {
+
+    fetch(url)
+        .then(response => response.json())
+        .then((datas)=>{
+            datas.map((data)=>{
+                chat_wrap.appendChild(createReceiverMessage(data.message, data.timeSend, data.avatarUserSend));
+            })
+            
+            return console.log(datas)
+        })
+        .catch(function(){
+            console.error('error!')
+        });
+
+}
+handleEventReceiver("http://localhost:3000/messenger");//api
+
+function createReceiverMessage(message, timeSend, avatarUserSend)
+{
+    let messageElement = document.createElement('div');
+    messageElement.classList.add('container__right__chat-content__item');
+    messageElement.innerHTML = `
+    <div class="container__right__chat-content__item__wrap-msg-receive">
+        <div class="container__right__chat-content__item__avatar-msg-receive">
+            <img src="${avatarUserSend}" alt="" class="container__right__chat-content__item__avatar__img-msg-receive">
+        </div>
+
+        <span class="container__right__chat-content__item__detail__wrap-msg-msg-receive">
+            <div id="msg-receiver" class="container__right__chat-content__item__detail__wrap-msg-msg-receive__content"></div>
+            <div id="timeReceiver" class="container__right__chat-content__item__detail__wrap-msg-msg-receive__time"></div>
+        </span>
+    </div>
+    `;
+    messageElement.querySelector('#msg-receiver').innerText = message;
+    messageElement.querySelector('#timeReceiver').innerText = timeSend;
+    return messageElement;
+}

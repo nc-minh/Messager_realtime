@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/email.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/grid.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../icon/icofont/icofont.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   
+    <title>Friend request received</title>
+</head>
+<body>
+    <div class="app">
+        <header class="grid app__header">
+            <div class="row no-gutters app__header__content">
+                <!-- header left -->
+                <div class="col l-3 m-3 c-6 header--left">
+                    <div class="header__logo">
+                        <a href="../../index.html" class="header__logo-link">
+                            <img src="../img/icon-fb.png" class="header__logo__img" alt="">
+                        </a>
+                    </div>
+                    <div class="header__search" title="Tìm kiếm">
+                        <i class="icofont-search-2 header__search__icon"></i>
+                        <input type="text" class="header__search__input" placeholder="Tìm kiếm">
+                    </div>
+                </div>
+
+                <div class="col l-6 m-6 c-0 header--center">
+                    <div class="header--center__nav">
+                        <a href="chat.html" class="header--center__nav__link">
+                            <span class="header--center__nav__content" title="Trang chủ">
+                                <i class="icofont-home header--center__nav__icon"></i>
+                            </span>
+                        </a>
+                        <a href="" class="header--center__nav__link">
+                            <span class="header--center__nav__content header--center__nav__content--click" title="Danh sách bạn bè">
+                                <i class="icofont-users header--center__nav__icon"></i>
+                            </span>
+                        </a>
+                        <a href="" class="header--center__nav__link">
+                            <span class="header--center__nav__content" title="Thông báo">
+                                <span class="header--center__nav__content--notifications">9+</span>
+                                <i class="icofont-notification header--center__nav__icon"></i>
+                            </span>
+                        </a>
+                        <a href="" class="header--center__nav__link">
+                            <span class="header--center__nav__content" title="Cài đặt">
+                                <i class="icofont-ui-settings header--center__nav__icon"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col l-3 m-3 c-6 header--right">
+                    <div class="header--right__nav">
+                        <div class="header--right__nav__user">
+                            <div class="header--right__nav__user--avatar">
+                                <img src="../img/avatar.jpg" class="nav__user--avatar__img" alt="">
+                            </div>
+                            <div class="header--right__nav__user--firstname">
+                                <span class="nav__user--firstname--text">Minh</span>
+                            </div>
+                        </div>
+
+                        <div class="header--right__nav__content">
+                            <i class="icofont-caret-down header--right__nav__icon"></i>
+                            <div class="header--right__nav__content__options">
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item nav__content__options--user">
+                                        <div class="nav__content__options--user-avatar">
+                                            <img src="../img/avatar.jpg" alt="">
+                                        </div>
+    
+                                        <div class="nav__content__options--user-fullname">
+                                            <h4>Nguyễn Công Minh</h4>
+                                            <p>Tài khoản của bạn</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="nav__content__options__list nav__content__options__list--manage">
+                                    <div class="nav__content__options__list-item nav__content__options--manage">
+                                        <span class="nav__content__options__list-item-icon nav__content__options--manage-icon">
+                                            <i class="icofont-notebook"></i>
+                                        </span>
+    
+                                        <div class="nav__content__options__list-item-desc nav__content__options--manage-content">
+                                            <span>Quản lý!</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item nav__content__options--feedback">
+                                        <span class="nav__content__options__list-item-icon nav__content__options--feedback-icon">
+                                            <i class="icofont-exclamation-square"></i>
+                                        </span>
+    
+                                        <div class="nav__content__options__list-item-desc nav__content__options--feedback-content">
+                                            <span>Đưa ra phản hồi!</span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item options__item__function--item-setting">
+                                        <span class="nav__content__options__list-item-icon options__item__function--item-setting-icon">
+                                            <i class="icofont-settings-alt"></i>
+                                        </span>
+                                        <span class="nav__content__options__list-item-desc options__item__function--item-setting-desc">
+                                            Cài đặt
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item options__item__function--item-help">
+                                        <span class="nav__content__options__list-item-icon options__item__function--item-help-icon">
+                                            <i class="icofont-question-circle"></i>
+                                        </span>
+                                        <span class="nav__content__options__list-item-desc options__item__function--item-help-desc">
+                                            Giúp đỡ &amp; Hỗ trợ
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item options__item__function--item-display">
+                                        <span class="nav__content__options__list-item-icon options__item__function--item-display-icon">
+                                            <i class="icofont-moon"></i>
+                                        </span>
+                                        <span class="nav__content__options__list-item-desc options__item__function--item-display-desc">
+                                            Display
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__list-item options__item__function--item-logout">
+                                        <span class="nav__content__options__list-item-icon options__item__function--item-logout-icon">
+                                            <i class="icofont-logout"></i>
+                                        </span>
+                                        <span class="nav__content__options__list-item-desc options__item__function--item-logout-desc">
+                                            Log Out
+                                        </span>
+                                    </div>
+                                </div>
+    
+                                <div class="nav__content__options__list">
+                                    <div class="nav__content__options__item__footer">
+                                        DevChat Team
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </header>
+
+        <div class="app__body__friend grid">
+            <div class="body__friend__header grid">
+                <ul class="body__friend__header__list row">
+                    <li class="body__friend__header__list-item">
+                        <a href="friend_suggestions.html" class="body__friend__header__list-item-link">Bạn bè đề xuất</a>
+                    </li>
+                    <li class="body__friend__header__list-item">
+                        <a href="friend_all.html" class="body__friend__header__list-item-link">Tất cả bạn bè</a>
+                    </li>
+                    <li class="body__friend__header__list-item">
+                        <a href="friend_request_received.html" class="body__friend__header__list-item-link body__friend__header__list-item-link-clicked">Yêu cầu đã nhận</a>
+                    </li>
+                    <li class="body__friend__header__list-item">
+                        <a href="friend_request_sent.html" class="body__friend__header__list-item-link">Yêu cầu đã gửi</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="body__friend__container grid">
+                <div class="body__friend__container__header">
+                    <div class="body__friend__container__header-search">
+                        <i class="icofont-search-2 body__friend__container__header-search__icon"></i>
+                        <input type="text" class="body__friend__container__header-search__input" placeholder="Tìm kiếm">
+                    </div>
+                    <div class="body__friend__container__header-title">
+                        <h5>Kết quả tìm kiếm</h5>
+                    </div>
+                </div>
+
+                <div class="body__friend__container__content grid wide">
+                    <div class="body__friend__container__content-list row sm-gutter">
+                        <div class="col l-2-4 m-4 c-6 body__friend__container__content-list-item">
+                            <div class="body__friend__container__content-list-item-wrap">
+                                <div class="body__friend__container__content-list-item-wrap__avatar">
+                                    <a href="">
+                                        <img src="../img/fr2.jpg" alt="" class="body__friend__container__content-list-item-wrap__avatar-img">
+                                    </a>
+                                </div>
+                                <div class="body__friend__container__content-list-item-wrap__name">
+                                    <span>Nguyễn An Nhi</span>
+                                </div>
+                                <div class="body__friend__container__content-list-item-wrap__actions">
+                                    <div class="content-list-item-wrap__actions__item content-list-item-wrap__actions-cf">
+                                        <span>Xác nhận</span>
+                                    </div>
+                                    <div class="content-list-item-wrap__actions__item content-list-item-wrap__actions-del">
+                                        <span>Xoá</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/main_header.js"></script>
+</body>
+</html>
